@@ -34,10 +34,22 @@ public class OphthalmologyDataFormValidator extends BeanValidator<EditOphthalmol
 				checkFormat("ODCylinder", bean.getOdcylinder(), ValidationFormat.OPHTHALMOLOGY_DATA_CYLINDER, true));
 		errorList.addIfNotNull(
 				checkFormat("OSCylinder", bean.getOscylinder(), ValidationFormat.OPHTHALMOLOGY_DATA_CYLINDER, true));
+		if (bean.getOdcylinder() == null || bean.getOdcylinder().equals("")) {
+			errorList.addIfNotNull(
+					checkFormat("ODAxis", bean.getOdaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_NULLAXISOD, true));
+		} else {
+			errorList.addIfNotNull(
+					checkFormat("ODAxis", bean.getOdaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_AXIS, false));
+		}
+		if (bean.getOscylinder() == null || bean.getOscylinder().equals("")) {
+			errorList.addIfNotNull(
+					checkFormat("OSAxis", bean.getOsaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_NULLAXISOS, true));
+		} else {
+			errorList.addIfNotNull( 
+					checkFormat("OSAxis", bean.getOsaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_AXIS, false));
+		}
 		errorList.addIfNotNull( 
 				checkFormat("ODAxis", bean.getOdaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_AXIS, true));
-		errorList.addIfNotNull( 
-				checkFormat("OSAxis", bean.getOsaxis(), ValidationFormat.OPHTHALMOLOGY_DATA_AXIS, true));
 		errorList.addIfNotNull(
 				checkFormat("ODAdd", bean.getOdadd(), ValidationFormat.OPHTHALMOLOGY_DATA_ADD, false));
 		errorList.addIfNotNull(

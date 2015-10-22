@@ -33,7 +33,7 @@ CREATE TABLE Wards(
 ) ENGINE=MyISAM;
 
 CREATE TABLE personnel(
-	MID BIGINT unsigned default NULL,
+	MID BIGINT unsigned default 0,
 	AMID BIGINT unsigned default NULL,
 	role enum('admin','hcp','uap','er','tester','pha', 'lt') NOT NULL default 'admin',
 	enabled tinyint(1) unsigned NOT NULL default '0',

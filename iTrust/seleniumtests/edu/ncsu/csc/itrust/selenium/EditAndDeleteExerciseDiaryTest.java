@@ -219,10 +219,12 @@ public class EditAndDeleteExerciseDiaryTest extends iTrustSeleniumTest {
 		assertEquals("100", tableRows.get(5).getText());
 	}
 	
+	
 	/**
 	 * Tests that a user will be presented with a popup before
 	 * completely deleting an entry.
 	 */
+	/* DEPRCATED CODE
 	public void testDeleteExerciseDiaryEntry() throws Exception {
 		HtmlUnitDriver driver = new HtmlUnitDriver();
 		driver = (HtmlUnitDriver)login("1", "pw"); //login as Random
@@ -230,10 +232,7 @@ public class EditAndDeleteExerciseDiaryTest extends iTrustSeleniumTest {
 		driver.findElement(By.linkText("My Exercise Diary")).click();
 		assertEquals("iTrust - View My Exercise Diary", driver.getTitle());
 		
-		/* make sure the values are right to begin with
-		now find the values individually (name:row#)
-		have to do it by value since they are input fields
-		used for editing and deleting */
+		//verify initial values
 		WebElement valDate = driver.findElement(By.name("Date:0"));
 		assertEquals("12/14/2012", valDate.getValue());
 		WebElement valType = driver.findElement(By.name("ExerciseType:0"));
@@ -263,8 +262,8 @@ public class EditAndDeleteExerciseDiaryTest extends iTrustSeleniumTest {
 		//now click to delete the first entry
 		WebElement button = driver.findElement(By.cssSelector("input[value='Delete Entry']"));
 		
-		/*htmlunitdriver doesn't work with confirms well, and this is the
-			best workaround there is */
+		//htmlunitdriver doesn't work with confirms well, and this is the
+		//	best workaround there is
 		driver.executeScript("window.confirm=function() {return true;}");
 		button.click();
 		
@@ -291,6 +290,7 @@ public class EditAndDeleteExerciseDiaryTest extends iTrustSeleniumTest {
 		assertEquals("1.0", tableRows.get(1).getText());
 		assertEquals("100", tableRows.get(2).getText());
 	}
+	END DEPRCATED CODE*/
 	
 	/**
 	 * Tests that a user can cancel deletion of an entry and that

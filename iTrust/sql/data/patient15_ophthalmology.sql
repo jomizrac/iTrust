@@ -74,9 +74,7 @@ VALUES (717,'2015-10-12',9900000022,'Yet another ophthalmology office visit.','9
  
 
 INSERT INTO ovdiagnosis(ICDCode, VisitID) VALUES 
-(350.0, 11),
-(715.09, 11),
-(250.0, 11)
+(365.0, 117)
  ON DUPLICATE KEY UPDATE ICDCode = VALUES(ICDCode), VisitID = VALUES(VisitID);
 
 INSERT INTO declaredhcp(PatientID,HCPID) VALUE(15, 9900000022)

@@ -32,6 +32,9 @@ public class EditDiagnosesActionTest extends TestCase {
 		// An EditDiagnosesAction without an ovID returns an empty list.
 		action = new EditDiagnosesAction(factory, 9000000000L, "2");
 		assertEquals(0, action.getDiagnoses().size());
+		
+		action = new EditDiagnosesAction(factory, 9900000022L, "15", "117");
+		assertEquals(1, action.getDiagnoses().size());
 	}
 
 	public void testAddDiagnosis() throws Exception {
@@ -65,12 +68,12 @@ public class EditDiagnosesActionTest extends TestCase {
 	public void testGetDiagnosisCodes() throws Exception {
 		action = new EditDiagnosesAction(factory, 9000000000L, "2", "955");
 		List<DiagnosisBean> list = action.getDiagnosisCodes();
-		assertEquals(17, list.size());
+		assertEquals(21, list.size());
 		
 		// It can also be retrieved for an undefined office visit
 		action = new EditDiagnosesAction(factory, 9000000000L, "1");
 		list = action.getDiagnosisCodes();
-		assertEquals(17, list.size());
+		assertEquals(21, list.size());
 	}
 
 }

@@ -11,4 +11,9 @@ INSERT INTO icdcodes(Code, Description, Chronic, URL) VALUES
 ('70.10', 'Viral hepatitis A, infectious', 'yes',''),
 ('250.00','Acute Lycanthropy', 'yes',''),
 ('715.09', 'Osteoarthrosis, generalized, multiple sites', 'yes',''),
-('72.00','Mumps', 'no','')  ON DUPLICATE KEY UPDATE Code = Code;
+('72.00','Mumps', 'no',''),
+('366.0', 'Cataracts', 'no', ''),
+('362.5', 'Age-Related Macular Degeneration', 'no', ''),
+('368.0', 'Amblyopia', 'no', ''),
+('365.0', 'Glaucoma', 'yes', '')
+ON DUPLICATE KEY UPDATE Code = Code;

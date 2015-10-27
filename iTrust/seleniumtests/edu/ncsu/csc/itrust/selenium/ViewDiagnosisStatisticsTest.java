@@ -559,4 +559,6 @@ public class ViewDiagnosisStatisticsTest extends iTrustSeleniumTest {
 		assertLogged(TransactionType.DIAGNOSIS_EPIDEMICS_VIEW, 9000000007L, 0L, "");
 		assertTrue(driver.getPageSource().contains("There is no epidemic occurring in the region."));
 	}
+	
+
 }

@@ -40,8 +40,8 @@ INSERT INTO itrust.officevisits(ID, visitDate, appt_type, HCPID, notes, PatientI
 	VALUES(147, '2015-10-30', 'Ophthalmology', 9900000022, 'Ophthalmology Appt', 73, 1, 0, 0);
 	
 /* Add Opthalmology Data to Brittany Franco's Office Visit */
-INSERT INTO itrust.ovophthalmologydata(id, VisitId, acuityNumerator, acuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
-	VALUES(2, 147, 20, 18, .75, .5, 0, -.25, 0, 30, 1.0, 1.0);
+INSERT INTO itrust.ovophthalmologydata(id, VisitId, ODAcuityNumerator, ODAcuityDenominator, OSAcuityNumerator, OSAcuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
+	VALUES(2, 147, 20, 18, 20, 18, .75, .5, 0, -.25, 0, 30, 1.0, 1.0);
 	
 /* Baby Chandler (Dependent) */
 INSERT INTO users (MID, Password, Role, sQuestion, sAnswer, isDependent)
@@ -79,7 +79,7 @@ INSERT INTO itrust.officevisits(ID, visitDate, appt_type, HCPID, notes, PatientI
 	VALUES(148, '2015-10-11', 'Ophthalmology', 9900000022, 'Ophthalmology Appt', 74, 1, 0, 0);
 	
 /* Add Opthalmology Data to Baby Chandler's Office Visit */
-INSERT INTO itrust.ovophthalmologydata(id, VisitId, acuityNumerator, acuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
-	VALUES(3, 148, 20, 18, 0, .75, .5, -.25, 0, 30, 1.0, 1.0);
+INSERT INTO itrust.ovophthalmologydata(id, VisitId, ODAcuityNumerator, ODAcuityDenominator, OSAcuityNumerator, OSAcuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
+	VALUES(3, 148, 20, 18, 20, 18, 0, .75, .5, -.25, 0, 30, 1.0, 1.0);
 	
  

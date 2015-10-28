@@ -17,8 +17,10 @@ public class OphthalmologyDataBean implements Serializable {
 	 */
 	private static final long serialVersionUID = -7201556261684536867L;
 	
-	private Integer acuityNumerator;
-	private Integer acuityDenominator;
+	private Integer OSAcuityNumerator;
+	private Integer OSAcuityDenominator;
+	private Integer ODAcuityNumerator;
+	private Integer ODAcuityDenominator;
 	private Double ODSphere;
 	private Double OSSphere;
 	private Double ODCylinder;
@@ -32,35 +34,65 @@ public class OphthalmologyDataBean implements Serializable {
 
 	
 	/**
-	 * Getter for acuity numerator
+	 * Getter for OD acuity numerator
 	 * @return acuity numerator
 	 */
-	public Integer getAcuityNumerator() {
-		return acuityNumerator;
+	public Integer getODAcuityNumerator() {
+		return ODAcuityNumerator;
 	}
 	
 	/**
-	 * Setter for acuity numerator
-	 * @param acuityNumerator
+	 * Setter for OD acuity numerator
+	 * @param ODAcuityNumerator
 	 */
-	public void setAcuityNumerator(Integer acuityNumerator) {
-		this.acuityNumerator = acuityNumerator;
+	public void setODAcuityNumerator(Integer ODAcuityNumerator) {
+		this.ODAcuityNumerator = ODAcuityNumerator;
 	}
 	
-	/** getter for acuity denominator
-	 * @return the acuityDenominator
+	/** getter for OD acuity denominator
+	 * @return the ODAcuityDenominator
 	 */
-	public Integer getAcuityDenominator() {
-		return acuityDenominator;
+	public Integer getODAcuityDenominator() {
+		return ODAcuityDenominator;
 	}
 
-	/** setter for acuity denominator
-	 * @param acuityDenominator the acuityDenominator to set
+	/** setter for OD acuity denominator
+	 * @param ODAcuityDenominator the ODAcuityDenominator to set
 	 */
-	public void setAcuityDenominator(Integer acuityDenominator) {
-		this.acuityDenominator = acuityDenominator;
+	public void setODAcuityDenominator(Integer ODAcuityDenominator) {
+		this.ODAcuityDenominator = ODAcuityDenominator;
 	}
 
+	/**
+	 * Getter for OS acuity numerator
+	 * @return acuity numerator
+	 */
+	public Integer getOSAcuityNumerator() {
+		return OSAcuityNumerator;
+	}
+	
+	/**
+	 * Setter for OS acuity numerator
+	 * @param ODAcuityNumerator
+	 */
+	public void setOSAcuityNumerator(Integer ODAcuityNumerator) {
+		this.OSAcuityNumerator = ODAcuityNumerator;
+	}
+	
+	/** getter for OS acuity denominator
+	 * @return the ODAcuityDenominator
+	 */
+	public Integer getOSAcuityDenominator() {
+		return OSAcuityDenominator;
+	}
+
+	/** setter for OS acuity denominator
+	 * @param ODAcuityDenominator the ODAcuityDenominator to set
+	 */
+	public void setOSAcuityDenominator(Integer ODAcuityDenominator) {
+		this.OSAcuityDenominator = ODAcuityDenominator;
+	}
+	
 	/**
 	 * getter for OD Sphere
 	 * @return od sphere

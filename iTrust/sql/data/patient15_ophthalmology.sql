@@ -83,8 +83,8 @@ INSERT INTO declaredhcp(PatientID,HCPID) VALUE(15, 9900000022)
  ON DUPLICATE KEY UPDATE PatientID = PatientID;
  
  /* Add Opthalmology Data to Office Visit */
-INSERT INTO itrust.ovophthalmologydata(id, VisitId, acuityNumerator, acuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
-	VALUES(7, 717, 20, 10, 1.75, 1.75, 0, 0, 0, 0, 1.25, 1.25);
+INSERT INTO itrust.ovophthalmologydata(id, VisitId, ODAcuityNumerator, ODAcuityDenominator, OSAcuityNumerator, OSAcuityDenominator, ODSphere, OSSphere, ODCylinder, OSCylinder, ODAxis, OSAxis, ODAdd, OSAdd)
+	VALUES(7, 717, 20, 10, 20, 10, 1.75, 1.75, 0, 0, 0, 0, 1.25, 1.25);
 	
 INSERT INTO ovprocedure(id, visitid, cptcode)
 VALUES

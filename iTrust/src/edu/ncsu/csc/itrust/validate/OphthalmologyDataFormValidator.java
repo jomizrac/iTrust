@@ -23,9 +23,13 @@ public class OphthalmologyDataFormValidator extends BeanValidator<EditOphthalmol
 	public void validate(EditOphthalmologyDataForm bean) throws FormValidationException{
 		ErrorList errorList = new ErrorList();
 		errorList.addIfNotNull(
-				checkFormat("Acuity", bean.getAcuityDenominator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
+				checkFormat("Acuity", bean.getODAcuityDenominator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
 		errorList.addIfNotNull(
-				checkFormat("Acuity", bean.getAcuityNumerator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
+				checkFormat("Acuity", bean.getODAcuityNumerator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
+		errorList.addIfNotNull(
+				checkFormat("Acuity", bean.getOSAcuityDenominator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
+		errorList.addIfNotNull(
+				checkFormat("Acuity", bean.getOSAcuityNumerator(), ValidationFormat.OPHTHALMOLOGY_DATA_ACUITY, false));
 		errorList.addIfNotNull(
 				checkFormat("ODSphere", bean.getOdsphere(), ValidationFormat.OPHTHALMOLOGY_DATA_SPHERE, false));
 		errorList.addIfNotNull(

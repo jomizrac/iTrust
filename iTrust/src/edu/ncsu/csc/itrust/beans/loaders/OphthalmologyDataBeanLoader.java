@@ -39,8 +39,10 @@ public class OphthalmologyDataBeanLoader implements BeanLoader<OphthalmologyData
 	public OphthalmologyDataBean loadSingle(ResultSet rs) throws SQLException {
 		OphthalmologyDataBean bean = new OphthalmologyDataBean();
 		
-		bean.setAcuityNumerator(rs.getInt("acuityNumerator"));
-		bean.setAcuityDenominator(rs.getInt("acuityDenominator"));
+		bean.setODAcuityNumerator(rs.getInt("ODAcuityNumerator"));
+		bean.setODAcuityDenominator(rs.getInt("ODAcuityDenominator"));
+		bean.setOSAcuityNumerator(rs.getInt("OSAcuityNumerator"));
+		bean.setOSAcuityDenominator(rs.getInt("OSAcuityDenominator"));
 		bean.setODSphere(rs.getDouble("ODSphere"));
 		bean.setOSSphere(rs.getDouble("OSSphere"));
 		bean.setODCylinder(rs.getDouble("ODCylinder"));
@@ -63,16 +65,18 @@ public class OphthalmologyDataBeanLoader implements BeanLoader<OphthalmologyData
 			throws SQLException {
 		
 		ps.setLong(1, bean.getVisitID());
-		ps.setInt(2, bean.getAcuityNumerator());
-		ps.setInt(3, bean.getAcuityDenominator());
-		ps.setDouble(4, bean.getODSphere());
-		ps.setDouble(5, bean.getOSSphere());
-		ps.setDouble(6, bean.getODCylinder());
-		ps.setDouble(7, bean.getOSCylinder());
-		ps.setInt(8, bean.getODAxis());
-		ps.setInt(9, bean.getOSAxis());
-		ps.setDouble(10, bean.getODAdd());
-		ps.setDouble(11, bean.getOSAdd());
+		ps.setInt(2, bean.getODAcuityNumerator());
+		ps.setInt(3, bean.getODAcuityDenominator());
+		ps.setInt(4, bean.getOSAcuityNumerator());
+		ps.setInt(5, bean.getOSAcuityDenominator());
+		ps.setDouble(6, bean.getODSphere());
+		ps.setDouble(7, bean.getOSSphere());
+		ps.setDouble(8, bean.getODCylinder());
+		ps.setDouble(9, bean.getOSCylinder());
+		ps.setInt(10, bean.getODAxis());
+		ps.setInt(11, bean.getOSAxis());
+		ps.setDouble(12, bean.getODAdd());
+		ps.setDouble(13, bean.getOSAdd());
 		
 		return ps;
 	}

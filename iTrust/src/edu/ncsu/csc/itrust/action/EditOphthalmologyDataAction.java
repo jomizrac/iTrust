@@ -141,8 +141,10 @@ public class EditOphthalmologyDataAction extends EditOfficeVisitBaseAction {
 		OphthalmologyDataFormValidator validator = new OphthalmologyDataFormValidator();
 		validator.validate(form);
 		OphthalmologyDataBean bean = new OphthalmologyDataBean();
-		bean.setAcuityNumerator(Integer.valueOf(form.getAcuityNumerator()));
-		bean.setAcuityDenominator(Integer.valueOf(form.getAcuityDenominator()));
+		bean.setODAcuityNumerator(Integer.valueOf(form.getODAcuityNumerator()));
+		bean.setODAcuityDenominator(Integer.valueOf(form.getODAcuityDenominator()));
+		bean.setOSAcuityNumerator(Integer.valueOf(form.getOSAcuityNumerator()));
+		bean.setOSAcuityDenominator(Integer.valueOf(form.getOSAcuityDenominator()));
 		bean.setODSphere(Double.valueOf(form.getOdsphere()));
 		bean.setOSSphere(Double.valueOf(form.getOssphere()));
 		bean.setODCylinder(Double.valueOf(form.getOdcylinder()));

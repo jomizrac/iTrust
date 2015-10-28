@@ -31,8 +31,10 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 		
 		odbean = new OphthalmologyDataBean();
 		odbean.setVisitID(66);
-		odbean.setAcuityDenominator(1);
-		odbean.setAcuityNumerator(1);
+		odbean.setODAcuityDenominator(1);
+		odbean.setODAcuityNumerator(1);
+		odbean.setOSAcuityDenominator(1);
+		odbean.setOSAcuityNumerator(1);
 		odbean.setODSphere(2.0);
 		odbean.setOSSphere(2.0);
 		odbean.setODCylinder(3.0);
@@ -50,7 +52,7 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 	public void testEditOphthalmologyDataAction1() throws Exception {
 		EditOphthalmologyDataAction opaction = new EditOphthalmologyDataAction(factory, 9900000022L, "15", "117");
 		OphthalmologyDataBean bean = opaction.getOphthalmologyData().get(0);
-		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getODAcuityDenominator()));
 	}
 	
 	/**
@@ -70,7 +72,7 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 	public void testGetOphthalmologyData() throws Exception {
 		EditOphthalmologyDataAction opaction = new EditOphthalmologyDataAction(factory, 9900000022L, "15", "117");
 		OphthalmologyDataBean bean = opaction.getOphthalmologyData().get(0);
-		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getODAcuityDenominator()));
 		
 		EditOphthalmologyDataAction opaction2 = new EditOphthalmologyDataAction(factory, 9900000022L, "15");
 		assertNotNull(opaction2);
@@ -84,12 +86,12 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 	public void testAddOphthalmologyData() throws Exception {
 		EditOphthalmologyDataAction opaction = new EditOphthalmologyDataAction(factory, 9900000022L, "15", "117");
 		OphthalmologyDataBean bean = opaction.getOphthalmologyData().get(0);
-		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(20), Integer.valueOf(bean.getOSAcuityDenominator()));
 		
 		opaction.addOphthalmologyData(odbean);
-		odbean.setAcuityDenominator(36);
+		odbean.setOSAcuityDenominator(36);
 		opaction.editOphthalmologyData(odbean);
-		assertEquals(Integer.valueOf(36), Integer.valueOf(odbean.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(36), Integer.valueOf(odbean.getOSAcuityDenominator()));
 		
 	}
 	
@@ -99,8 +101,10 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 	 */
 	public void testFormToBean() throws Exception {
 		EditOphthalmologyDataForm form = new EditOphthalmologyDataForm();
-		form.setAcuityDenominator("1");
-		form.setAcuityNumerator("1");
+		form.setODAcuityDenominator("1");
+		form.setODAcuityNumerator("1");
+		form.setOSAcuityDenominator("1");
+		form.setOSAcuityNumerator("1");
 		form.setOdsphere("2.0");
 		form.setOssphere("2.0");
 		form.setOdcylinder("3.0");
@@ -113,8 +117,10 @@ public class EditOphthalmologyDataActionTest extends TestCase {
 		EditOphthalmologyDataAction opaction = new EditOphthalmologyDataAction(factory, 9900000022L, "15", "117");
 		OphthalmologyDataBean bean = opaction.formToBean(form);
 		
-		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getAcuityDenominator()));
-		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getAcuityNumerator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getODAcuityDenominator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getODAcuityNumerator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getOSAcuityDenominator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(bean.getOSAcuityNumerator()));
 		assertEquals(Double.valueOf(2.0), bean.getODSphere());
 		assertEquals(Double.valueOf(2.0), bean.getOSSphere());
 		assertEquals(Double.valueOf(3.0), bean.getOSCylinder());

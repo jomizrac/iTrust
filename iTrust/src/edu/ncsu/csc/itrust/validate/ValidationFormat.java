@@ -101,8 +101,8 @@ public enum ValidationFormat {
 	OPHTHALMOLOGY_DATA_ACUITY("^\\s*|[1-9]\\d*", "Must be a positive integer."),
 	OPHTHALMOLOGY_DATA_SPHERE("^[-+]?([0-9]|10).?[0-9]*$", "Must be a double between -10 and 10"),
 	OPHTHALMOLOGY_DATA_CYLINDER("^[-+]?([0-9]|10).?[0-9]*$", "Must be a double between -10 and 10"),
-	OPHTHALMOLOGY_DATA_NULLAXISOS("", "Axis only required if OSCylinder is provided"),
-	OPHTHALMOLOGY_DATA_NULLAXISOD("", "Axis only required if ODCylinder is provided"),
+	OPHTHALMOLOGY_DATA_NULLAXISOS("", "OSAxis only required if OSCylinder is provided"),
+	OPHTHALMOLOGY_DATA_NULLAXISOD("", "ODAxis only required if ODCylinder is provided"),
 	OPHTHALMOLOGY_DATA_AXIS("[1-9]|[0-9][0-9]|1[0-7][0-9]|180", "Must be positive integer between 1 and 180"), 
 	OPHTHALMOLOGY_DATA_ADD("^\\+?(?:3(?:\\.0*)?|[1-2](?:\\.[0-9]*)?|0?\\.[7][5-9][0-9]*|0?\\.[8-9][0-9]*)$" , "Must be between .75 and 3.00")
 	;

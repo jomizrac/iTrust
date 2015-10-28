@@ -33,8 +33,10 @@ public class OphthalmologyDataDAOTest extends TestCase {
 		
 		odbean = new OphthalmologyDataBean();
 		odbean.setVisitID(66);
-		odbean.setAcuityDenominator(1);
-		odbean.setAcuityNumerator(1);
+		odbean.setODAcuityDenominator(1);
+		odbean.setODAcuityNumerator(1);
+		odbean.setOSAcuityDenominator(1);
+		odbean.setOSAcuityNumerator(1);
 		odbean.setODSphere(2.0);
 		odbean.setOSSphere(2.0);
 		odbean.setODCylinder(3.0);
@@ -74,7 +76,7 @@ public class OphthalmologyDataDAOTest extends TestCase {
 		dao.add(odbean);
 		OphthalmologyDataBean curr = dao.getList(66).get(0);
 		assertEquals(1, dao.getList(66).size());
-		assertEquals(Integer.valueOf(1), Integer.valueOf(curr.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(curr.getODAcuityDenominator()));
 		assertEquals(Double.valueOf(2.0), curr.getODSphere());
 		assertEquals(Double.valueOf(3.0), curr.getOSCylinder());
 		assertEquals(Double.valueOf(1.0), curr.getODAdd());
@@ -91,8 +93,10 @@ public class OphthalmologyDataDAOTest extends TestCase {
 		OphthalmologyDataBean bean = new OphthalmologyDataBean();
 		bean.setId(92);
 		bean.setVisitID(92);
-		bean.setAcuityDenominator(1);
-		bean.setAcuityNumerator(1);
+		bean.setODAcuityDenominator(1);
+		bean.setODAcuityNumerator(1);
+		bean.setOSAcuityDenominator(1);
+		bean.setOSAcuityNumerator(1);
 		bean.setODSphere(2.0);
 		bean.setOSSphere(2.0);
 		bean.setODCylinder(3.0);
@@ -112,12 +116,12 @@ public class OphthalmologyDataDAOTest extends TestCase {
 		assertEquals(1, list.size());
 		
 		bean = list.get(0);
-		bean.setAcuityDenominator(70);
+		bean.setOSAcuityDenominator(70);
 		bean.setOSAdd(2.3);
 		dao.edit(bean);
 		
 		OphthalmologyDataBean currBean = dao.getList(117).get(0);
-		assertEquals(Integer.valueOf(70), Integer.valueOf(currBean.getAcuityDenominator()));
+		assertEquals(Integer.valueOf(70), Integer.valueOf(currBean.getOSAcuityDenominator()));
 		assertEquals(Double.valueOf(2.3), currBean.getOSAdd());
 		
 	}

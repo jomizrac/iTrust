@@ -24,8 +24,10 @@ public class EditOphthalmologyDataFormTest extends TestCase {
 		gen.standardData();
 		
 		form = new EditOphthalmologyDataForm();
-		form.setAcuityDenominator("1");
-		form.setAcuityNumerator("1");
+		form.setODAcuityDenominator("1");
+		form.setODAcuityNumerator("1");
+		form.setOSAcuityDenominator("1");
+		form.setOSAcuityNumerator("1");
 		form.setOdsphere("2.0");
 		form.setOssphere("2.0");
 		form.setOdcylinder("3.0");
@@ -41,8 +43,10 @@ public class EditOphthalmologyDataFormTest extends TestCase {
 	 * @throws Exception
 	 */
 	public void testOphthalmologyDataEquals() throws Exception {
-		assertEquals("1", form.getAcuityDenominator());
-		assertEquals("1", form.getAcuityNumerator());
+		assertEquals("1", form.getODAcuityDenominator());
+		assertEquals("1", form.getODAcuityNumerator());
+		assertEquals("1", form.getOSAcuityDenominator());
+		assertEquals("1", form.getOSAcuityNumerator());
 		assertEquals("2.0", form.getOdsphere());
 		assertEquals("2.0", form.getOssphere());
 		assertEquals("3.0", form.getOdcylinder());

@@ -736,8 +736,10 @@ CREATE TABLE IF NOT EXISTS designatedNutritionist(
 CREATE TABLE IF NOT EXISTS ovOphthalmologyData(
 	id BIGINT unsigned AUTO_INCREMENT primary key,
     VisitID BIGINT unsigned,
-    acuityNumerator INT unsigned,
-    acuityDenominator INT unsigned,
+    ODAcuityNumerator INT unsigned,
+    ODAcuityDenominator INT unsigned,
+    OSAcuityNumerator INT unsigned,
+    OSAcuityDenominator INT unsigned,
     ODSphere DOUBLE NOT NULL,
     OSSphere DOUBLE NOT NULL,
     ODCylinder DOUBLE NOT NULL,

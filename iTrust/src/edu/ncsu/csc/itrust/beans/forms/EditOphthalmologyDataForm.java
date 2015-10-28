@@ -9,8 +9,10 @@ package edu.ncsu.csc.itrust.beans.forms;
  */
 public class EditOphthalmologyDataForm {
 	
-	private String acuityNumerator;
-	private String acuityDenominator;
+	private String ODAcuityNumerator;
+	private String ODAcuityDenominator;
+	private String OSAcuityNumerator;
+	private String OSAcuityDenominator;
 	private String odsphere;
 	private String ossphere;
 	private String odcylinder;
@@ -23,28 +25,54 @@ public class EditOphthalmologyDataForm {
 	/**
 	 * @return the acuity
 	 */
-	public String getAcuityNumerator() {
-		return acuityNumerator;
+	public String getODAcuityNumerator() {
+		return ODAcuityNumerator;
 	}
 	/**
 	 * @param acuity the acuity to set
 	 */
-	public void setAcuityNumerator(String acuity) {
-		this.acuityNumerator = acuity;
+	public void setODAcuityNumerator(String acuity) {
+		this.ODAcuityNumerator = acuity;
 	}
 	
 	/**
 	 * @return the acuityDenominator
 	 */
-	public String getAcuityDenominator() {
-		return acuityDenominator;
+	public String getODAcuityDenominator() {
+		return ODAcuityDenominator;
 	}
 	/**
 	 * @param acuityDenominator the acuityDenominator to set
 	 */
-	public void setAcuityDenominator(String acuityDenominator) {
-		this.acuityDenominator = acuityDenominator;
+	public void setODAcuityDenominator(String acuityDenominator) {
+		this.ODAcuityDenominator = acuityDenominator;
 	}
+	/**
+	 * @return the acuity
+	 */
+	public String getOSAcuityNumerator() {
+		return OSAcuityNumerator;
+	}
+	/**
+	 * @param acuity the acuity to set
+	 */
+	public void setOSAcuityNumerator(String acuity) {
+		this.OSAcuityNumerator = acuity;
+	}
+	
+	/**
+	 * @return the acuityDenominator
+	 */
+	public String getOSAcuityDenominator() {
+		return OSAcuityDenominator;
+	}
+	/**
+	 * @param acuityDenominator the acuityDenominator to set
+	 */
+	public void setOSAcuityDenominator(String acuityDenominator) {
+		this.OSAcuityDenominator = acuityDenominator;
+	}
+	
 	/**
 	 * @return the odsphere
 	 */

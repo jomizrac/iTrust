@@ -44,11 +44,17 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		
 		assertTrue(driver.getPageSource().contains("Ophthalmology Data"));
 		//Add Ophthalmology Data
-		driver.findElement(By.id("acuityNumerator")).clear();
-		driver.findElement(By.id("acuityNumerator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityNumerator")).clear();
+		driver.findElement(By.id("ODAcuityNumerator")).sendKeys("20");
 		
-		driver.findElement(By.id("acuityDenominator")).clear();
-		driver.findElement(By.id("acuityDenominator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityDenominator")).clear();
+		driver.findElement(By.id("ODAcuityDenominator")).sendKeys("20");
+		
+		driver.findElement(By.id("OSAcuityNumerator")).clear();
+		driver.findElement(By.id("OSAcuityNumerator")).sendKeys("20");
+		
+		driver.findElement(By.id("OSAcuityDenominator")).clear();
+		driver.findElement(By.id("OSAcuityDenominator")).sendKeys("20");
 		
 		driver.findElement(By.name("odsphere")).clear();
 		driver.findElement(By.name("odsphere")).sendKeys("-3.25");
@@ -112,11 +118,17 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		
 		driver.findElement(By.id("update")).click();
 		//Add Ophthalmology Data
-		driver.findElement(By.name("acuityNumerator")).clear();
-		driver.findElement(By.name("acuityNumerator")).sendKeys("20/10");
+		driver.findElement(By.name("ODAcuityNumerator")).clear();
+		driver.findElement(By.name("ODAcuityNumerator")).sendKeys("20/10");
 		
-		driver.findElement(By.id("acuityDenominator")).clear();
-		driver.findElement(By.id("acuityDenominator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityDenominator")).clear();
+		driver.findElement(By.id("ODAcuityDenominator")).sendKeys("20");
+		
+		driver.findElement(By.name("OSAcuityNumerator")).clear();
+		driver.findElement(By.name("OSAcuityNumerator")).sendKeys("20/10");
+		
+		driver.findElement(By.id("OSAcuityDenominator")).clear();
+		driver.findElement(By.id("OSAcuityDenominator")).sendKeys("20");
 		
 		driver.findElement(By.name("odsphere")).clear();
 		driver.findElement(By.name("odsphere")).sendKeys("+1.75");
@@ -213,11 +225,17 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		
 		driver.findElement(By.id("update")).click();
 		//Edit Ophthalmology Data
-		driver.findElement(By.name("acuityNumerator")).clear();
-		driver.findElement(By.name("acuityNumerator")).sendKeys("20/15");
+		driver.findElement(By.name("ODAcuityNumerator")).clear();
+		driver.findElement(By.name("ODAcuityNumerator")).sendKeys("20/15");
 		
-		driver.findElement(By.id("acuityDenominator")).clear();
-		driver.findElement(By.id("acuityDenominator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityDenominator")).clear();
+		driver.findElement(By.id("ODAcuityDenominator")).sendKeys("20");
+		
+		driver.findElement(By.name("OSAcuityNumerator")).clear();
+		driver.findElement(By.name("OSAcuityNumerator")).sendKeys("20/15");
+		
+		driver.findElement(By.id("OSAcuityDenominator")).clear();
+		driver.findElement(By.id("OSAcuityDenominator")).sendKeys("20");
 		
 		//Submit form
 		driver.findElement(By.xpath(".//*[@value='Add Ophthalmology Data']")).click();
@@ -259,11 +277,17 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		
 		driver.findElement(By.id("update")).click();
 		//Add Ophthalmology Data
-		driver.findElement(By.name("acuityNumerator")).clear();
-		driver.findElement(By.name("acuityNumerator")).sendKeys("20/40");
+		driver.findElement(By.name("ODAcuityNumerator")).clear();
+		driver.findElement(By.name("ODAcuityNumerator")).sendKeys("20/40");
 
-		driver.findElement(By.id("acuityDenominator")).clear();
-		driver.findElement(By.id("acuityDenominator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityDenominator")).clear();
+		driver.findElement(By.id("ODAcuityDenominator")).sendKeys("20");
+		
+		driver.findElement(By.name("OSAcuityNumerator")).clear();
+		driver.findElement(By.name("OSAcuityNumerator")).sendKeys("20/40");
+
+		driver.findElement(By.id("OSAcuityDenominator")).clear();
+		driver.findElement(By.id("OSAcuityDenominator")).sendKeys("20");
 		
 		driver.findElement(By.name("odsphere")).clear();
 		driver.findElement(By.name("odsphere")).sendKeys("-3.25");
@@ -441,11 +465,17 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		
 		driver.findElement(By.id("update")).click();
 		//Add Ophthalmology Data
-		driver.findElement(By.name("acuityNumerator")).clear();
-		driver.findElement(By.name("acuityNumerator")).sendKeys("20/40");
+		driver.findElement(By.name("ODAcuityNumerator")).clear();
+		driver.findElement(By.name("ODAcuityNumerator")).sendKeys("20/40");
 
-		driver.findElement(By.id("acuityDenominator")).clear();
-		driver.findElement(By.id("acuityDenominator")).sendKeys("20");
+		driver.findElement(By.id("ODAcuityDenominator")).clear();
+		driver.findElement(By.id("ODAcuityDenominator")).sendKeys("20");
+		
+		driver.findElement(By.name("OSAcuityNumerator")).clear();
+		driver.findElement(By.name("OSAcuityNumerator")).sendKeys("20/40");
+
+		driver.findElement(By.id("OSAcuityDenominator")).clear();
+		driver.findElement(By.id("OSAcuityDenominator")).sendKeys("20");
 		
 		driver.findElement(By.name("odsphere")).clear();
 		driver.findElement(By.name("odsphere")).sendKeys("blue");
@@ -516,8 +546,8 @@ public class OphthalmologyOVTest extends iTrustSeleniumTest{
 		//Verify Document Office Visit page
 		assertEquals(ADDRESS + "auth/hcp-uap/documentOfficeVisit.jsp", driver.getCurrentUrl());
 		driver.findElementByLinkText("10/15/2015").click();
-		driver.findElement(By.name("acuityDenominator")).clear();
-		driver.findElement(By.name("acuityDenominator")).sendKeys("15");
+		driver.findElement(By.name("ODAcuityDenominator")).clear();
+		driver.findElement(By.name("ODAcuityDenominator")).sendKeys("15");
 		driver.findElement(By.id("updateOphthalmologyDataButton")).click();
 		
 		//Login as Freya Chandler

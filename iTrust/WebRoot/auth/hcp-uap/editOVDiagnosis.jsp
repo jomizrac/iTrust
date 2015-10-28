@@ -104,10 +104,22 @@ if (!"".equals(updateErrorMessage)) {
         <td colspan="3" align=center>
             <select name="ICDCode" style="font-size:10" <%= disableSubformsString %> >
             <option value="">-- None Selected --</option>
-            <%for(DiagnosisBean diag : ovaction.diagnoses().getDiagnosisCodes()) { %>
-            <option value="<%=diag.getICDCode()%>"><%= StringEscapeUtils.escapeHtml("" + (diag.getICDCode())) %>
-            - <%= StringEscapeUtils.escapeHtml("" + (diag.getDescription())) %></option>
-            <%}%>
+            <%
+            float ophthalmologyLowerLimit = 360;
+            float ophthalmologyUpperLimit = 379;
+            for(DiagnosisBean diag : ovaction.diagnoses().getDiagnosisCodes()) { 
+	         	if(ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Ophthalmology")){
+	         		if(Float.parseFloat(diag.getICDCode()) >= ophthalmologyLowerLimit && Float.parseFloat(diag.getICDCode()) <= ophthalmologyUpperLimit){
+	         			%><option value="<%=diag.getICDCode()%>"><%= StringEscapeUtils.escapeHtml("" + (diag.getICDCode())) %>
+			            - <%= StringEscapeUtils.escapeHtml("" + (diag.getDescription())) %></option>
+	         		<%}
+	         	}else{
+		            if(!(Float.parseFloat(diag.getICDCode()) >= ophthalmologyLowerLimit && Float.parseFloat(diag.getICDCode()) <= ophthalmologyUpperLimit)){
+	         			%><option value="<%=diag.getICDCode()%>"><%= StringEscapeUtils.escapeHtml("" + (diag.getICDCode())) %>
+			            - <%= StringEscapeUtils.escapeHtml("" + (diag.getDescription())) %></option>
+	         		<%}
+		        }
+            }%>
             </select>
             <input type="submit" id="add_diagnosis" value="Add Diagnosis" <%= disableSubformsString %> >
         </td>

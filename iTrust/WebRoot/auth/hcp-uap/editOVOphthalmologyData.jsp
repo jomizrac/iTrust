@@ -161,7 +161,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
 
 <table class="fTable" align="center" id="OphthalmologyDataTable">
     <tr>
-        <th colspan="9"><a href="#" class="topLink">[Top]</a>Ophthalmology Data</th>
+        <th colspan="10"><a href="#" class="topLink">[Top]</a>Ophthalmology Data</th>
     </tr>
     <tr class="subHeader">
         <td>OD Acuity</td>
@@ -180,7 +180,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     	if(ovaction.ophthalmologyData().getOphthalmologyData().size()==0) {
     %>
     <tr>
-        <td  colspan="9" style="text-align: center;">No Ophthalmology Data on record</td>
+        <td  colspan="10" style="text-align: center;">No Ophthalmology Data on record</td>
     </tr>
     <%
     	} else {
@@ -204,10 +204,11 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <% } // end of if..else statements %>
     <tr>
-        <th colspan="9" style="text-align: center;">New</th>
+        <th colspan="10" style="text-align: center;">New</th>
     </tr>
     <tr>
         <td vertical-align: top;>ODAcuity:</td>
+        <td colspan="1"></td>
         <td colspan="2">
             <input type="text" name="ODAcuityNumerator" id="ODAcuityNumerator" 
                    style="width: 15em; min-width: 15em;" 
@@ -225,6 +226,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>OSAcuity:</td>
+        <td colspan="1"></td>
         <td colspan="2">
             <input type="text" name="OSAcuityNumerator" id="OSAcuityNumerator" 
                    style="width: 15em; min-width: 15em;" 
@@ -242,6 +244,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODSphere:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odsphere" id="odsphere" 
                    style="width: 15em; min-width: 15em;" 
@@ -250,6 +253,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSSphere:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="ossphere" id="ossphere" 
                    style="width: 15em; min-width: 15em;" 
@@ -259,6 +263,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODCylinder:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odcylinder" id="odcylinder" 
                    style="width: 15em; min-width: 15em;"
@@ -267,6 +272,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSCylinder:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="oscylinder" id="oscylinder" 
                    style="width: 15em; min-width: 15em;" 
@@ -276,6 +282,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODAxis:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odaxis" id="odaxis" 
                    style="width: 15em; min-width: 15em;"
@@ -284,6 +291,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSAxis:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="osaxis" id="osaxis" 
                    style="width: 15em; min-width: 15em;" 
@@ -293,6 +301,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODAdd:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odadd" id="odadd" 
                    style="width: 15em; min-width: 15em;" 
@@ -301,6 +310,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSAdd:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="osadd" id="osadd" 
                    style="width: 15em; min-width: 15em;"
@@ -310,7 +320,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
   
     <tr>
-        <td colspan="9" style="text-align: center;">
+        <td colspan="10" style="text-align: center;">
             <% if (editingExistingData == true) { %>
                 <input type="submit" name="updateOphthalmologyDataButton" 
                        id="updateOphthalmologyDataButton"

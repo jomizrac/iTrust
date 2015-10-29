@@ -15,8 +15,10 @@ public class OphthalmologyDataBeanTest extends TestCase {
 	 */
 	protected void setUp() throws Exception {
 		odbean = new OphthalmologyDataBean();
-		odbean.setAcuityDenominator(1);
-		odbean.setAcuityNumerator(1);
+		odbean.setODAcuityDenominator(1);
+		odbean.setODAcuityNumerator(1);
+		odbean.setOSAcuityDenominator(1);
+		odbean.setOSAcuityNumerator(1);
 		odbean.setODSphere(2.0);
 		odbean.setOSSphere(2.0);
 		odbean.setODCylinder(3.0);
@@ -32,8 +34,10 @@ public class OphthalmologyDataBeanTest extends TestCase {
 	 * @throws Exception
 	 */
 	public void testOphthalmologyDataEquals() throws Exception {
-		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getAcuityDenominator()));
-		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getAcuityNumerator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getODAcuityDenominator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getODAcuityNumerator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getOSAcuityDenominator()));
+		assertEquals(Integer.valueOf(1), Integer.valueOf(odbean.getOSAcuityNumerator()));
 		assertEquals(Double.valueOf(2.0), odbean.getODSphere());
 		assertEquals(Double.valueOf(2.0), odbean.getOSSphere());
 		assertEquals(Double.valueOf(3.0), odbean.getODCylinder());

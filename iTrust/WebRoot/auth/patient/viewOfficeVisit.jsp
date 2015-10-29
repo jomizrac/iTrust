@@ -136,7 +136,8 @@ if(type.equals("Ophthalmology")){
 		<th colspan = "9"> Ophthalmology Data <th>
 	<tr>
 	<tr class = "subHeader">
-		<td colspan = "2">Acuity</td>
+		<td colspan = "2">ODAcuity</td>
+		<td colspan = "2">OSAcuity</td>
 		<td>OD Sphere</td>
 		<td>OS Sphere</td>
 		<td>OD Cylinder</td>
@@ -152,8 +153,10 @@ if(type.equals("Ophthalmology")){
 
 		
 		%>
-		<td colspan = "2" align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getAcuityNumerator()))%> /
-    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getAcuityDenominator()))%></td>
+		<td colspan = "2" align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getODAcuityNumerator()))%> /
+    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getODAcuityDenominator()))%></td>
+    					 <td colspan = "2" align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getOSAcuityNumerator()))%> /
+    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getOSAcuityDenominator()))%></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (decimalFormat.format(odbean.getODSphere()))) %></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (decimalFormat.format(odbean.getOSSphere()))) %></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (decimalFormat.format(odbean.getODCylinder())))%></td>

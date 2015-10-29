@@ -71,7 +71,7 @@ public class OphthalmologyDataDAO {
 		try {
 			conn = factory.getConnection();
 			String statement = "INSERT INTO ovOphthalmologyData " +
-				"(visitID,acuityNumerator,acuityDenominator,ODSphere,OSSphere,ODCylinder,OSCylinder,ODAxis,OSAxis,ODAdd,OSAdd) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+				"(visitID,ODAcuityNumerator,ODAcuityDenominator,OSAcuityNumerator,OSAcuityDenominator,ODSphere,OSSphere,ODCylinder,OSCylinder,ODAxis,OSAxis,ODAdd,OSAdd) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(statement);
 			ps = loader.loadParameters(ps, bean);
 			ps.executeUpdate();
@@ -96,11 +96,11 @@ public class OphthalmologyDataDAO {
 		try {
 			conn = factory.getConnection();
 			String statement = "UPDATE ovOphthalmologyData " +
-				"SET visitID=?, acuityNumerator=?, acuityDenominator=?, ODSphere=?, OSSphere=?, ODCylinder=?, OSCylinder=?, ODAxis=?, OSAxis=?, ODAdd=?, OSAdd=? " +
+				"SET visitID=?, ODAcuityNumerator=?, ODAcuityDenominator=?, OSAcuityNumerator=?, OSAcuityDenominator=?, ODSphere=?, OSSphere=?, ODCylinder=?, OSCylinder=?, ODAxis=?, OSAxis=?, ODAdd=?, OSAdd=? " +
 				"WHERE id=?";
 			ps = conn.prepareStatement(statement);
 			loader.loadParameters(ps, bean);
-			ps.setLong(12, bean.getId());
+			ps.setLong(14, bean.getId());
 			ps.executeUpdate();
 			return DBUtil.getLastInsert(conn);
 		} catch (SQLException e) {

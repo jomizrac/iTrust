@@ -11,8 +11,10 @@
 	String updateMessage = "";
 //To hold the last value the user input for the fields
 String lastOphthalmologyDataID = "";
-String lastAcuityNumerator = "";
-String lastAcuityDenominator = "";
+String lastODAcuityNumerator = "";
+String lastODAcuityDenominator = "";
+String lastOSAcuityNumerator = "";
+String lastOSAcuityDenominator = "";
 String lastODSphere = "";
 String lastOSSphere = "";
 String lastODCylinder = "";
@@ -45,8 +47,10 @@ if (ovaction.ophthalmologyData().getOphthalmologyData().size() != 0) {
 			DecimalFormat df = new DecimalFormat("+#,##0.00;-#");
 
 			lastOphthalmologyDataID = Long.toString(bean.getId());
-			lastAcuityNumerator = bean.getAcuityNumerator().toString();
-			lastAcuityDenominator = bean.getAcuityDenominator().toString();
+			lastODAcuityNumerator = bean.getODAcuityNumerator().toString();
+			lastODAcuityDenominator = bean.getODAcuityDenominator().toString();
+			lastOSAcuityNumerator = bean.getOSAcuityNumerator().toString();
+			lastOSAcuityDenominator = bean.getOSAcuityDenominator().toString();
 			lastODSphere = df.format(bean.getODSphere());
 			lastOSSphere = df.format(bean.getOSSphere());
 			lastODCylinder = df.format(bean.getODCylinder());
@@ -97,8 +101,10 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     } catch (FormValidationException e) {
         errorMsg = e.printHTMLasString();
         lastOphthalmologyDataID = request.getParameter("OphthalmologyDataID");
-        lastAcuityNumerator = request.getParameter("acuityNumerator");
-        lastAcuityDenominator = request.getParameter("acuityDenominator");
+        lastODAcuityNumerator = request.getParameter("ODAcuityNumerator");
+        lastODAcuityDenominator = request.getParameter("ODAcuityDenominator");
+        lastOSAcuityNumerator = request.getParameter("OSAcuityNumerator");
+        lastOSAcuityDenominator = request.getParameter("OSAcuityDenominator");
         lastODSphere = request.getParameter("odsphere");
         lastOSSphere = request.getParameter("ossphere");
         lastODCylinder = request.getParameter("odcylinder");
@@ -155,10 +161,11 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
 
 <table class="fTable" align="center" id="OphthalmologyDataTable">
     <tr>
-        <th colspan="9"><a href="#" class="topLink">[Top]</a>Ophthalmology Data</th>
+        <th colspan="10"><a href="#" class="topLink">[Top]</a>Ophthalmology Data</th>
     </tr>
     <tr class="subHeader">
-        <td>Acuity</td>
+        <td>OD Acuity</td>
+        <td>OS Acuity</td>
         <td>OD Sphere</td>
         <td>OS Sphere</td>
         <td>OD Cylinder</td>
@@ -173,7 +180,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     	if(ovaction.ophthalmologyData().getOphthalmologyData().size()==0) {
     %>
     <tr>
-        <td  colspan="9" style="text-align: center;">No Ophthalmology Data on record</td>
+        <td  colspan="10" style="text-align: center;">No Ophthalmology Data on record</td>
     </tr>
     <%
     	} else {
@@ -181,8 +188,10 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         		DecimalFormat df = new DecimalFormat("+#,##0.00;-#");
     %>
     <tr>
-    	<td align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getAcuityNumerator()))%> /
-    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getAcuityDenominator()))%></td>
+    	<td align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getODAcuityNumerator()))%> /
+    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getODAcuityDenominator()))%></td>
+    	<td align=center><%=StringEscapeUtils.escapeHtml("" + (odbean.getOSAcuityNumerator()))%> /
+    					 <%=StringEscapeUtils.escapeHtml("" + (odbean.getOSAcuityDenominator()))%></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (df.format(odbean.getODSphere()))) %></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (df.format(odbean.getOSSphere()))) %></td>
     	<td align=center><%= StringEscapeUtils.escapeHtml("" + (df.format(odbean.getODCylinder())))%></td>
@@ -195,27 +204,47 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <% } // end of if..else statements %>
     <tr>
-        <th colspan="9" style="text-align: center;">New</th>
+        <th colspan="10" style="text-align: center;">New</th>
     </tr>
     <tr>
-        <td vertical-align: top;>Acuity:</td>
+        <td vertical-align: top;>ODAcuity:</td>
+        <td colspan="1"></td>
         <td colspan="2">
-            <input type="text" name="acuityNumerator" id="acuityNumerator" 
+            <input type="text" name="ODAcuityNumerator" id="ODAcuityNumerator" 
                    style="width: 15em; min-width: 15em;" 
-                   value="<%= StringEscapeUtils.escapeHtml(lastAcuityNumerator) %>"
+                   value="<%= StringEscapeUtils.escapeHtml(lastODAcuityNumerator) %>"
                    <%= disableSubformsString %> >
         </td>
         <td style="text-align: center;"> / </td>
         <td colspan="2">
-            <input type="text" name="acuityDenominator" id="acuityDenominator" 
+            <input type="text" name="ODAcuityDenominator" id="ODAcuityDenominator" 
                    style="width: 15em; min-width: 15em;" 
-                   value="<%= StringEscapeUtils.escapeHtml(lastAcuityDenominator) %>"
+                   value="<%= StringEscapeUtils.escapeHtml(lastODAcuityDenominator) %>"
+                   <%= disableSubformsString %> >                 
+        </td>
+        <td colspan="3"></td>
+    </tr>
+    <tr>
+        <td vertical-align: top;>OSAcuity:</td>
+        <td colspan="1"></td>
+        <td colspan="2">
+            <input type="text" name="OSAcuityNumerator" id="OSAcuityNumerator" 
+                   style="width: 15em; min-width: 15em;" 
+                   value="<%= StringEscapeUtils.escapeHtml(lastOSAcuityNumerator) %>"
+                   <%= disableSubformsString %> >
+        </td>
+        <td style="text-align: center;"> / </td>
+        <td colspan="2">
+            <input type="text" name="OSAcuityDenominator" id="OSAcuityDenominator" 
+                   style="width: 15em; min-width: 15em;" 
+                   value="<%= StringEscapeUtils.escapeHtml(lastOSAcuityDenominator) %>"
                    <%= disableSubformsString %> >                 
         </td>
         <td colspan="3"></td>
     </tr>
     <tr>
         <td vertical-align: top;>ODSphere:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odsphere" id="odsphere" 
                    style="width: 15em; min-width: 15em;" 
@@ -224,6 +253,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSSphere:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="ossphere" id="ossphere" 
                    style="width: 15em; min-width: 15em;" 
@@ -233,6 +263,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODCylinder:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odcylinder" id="odcylinder" 
                    style="width: 15em; min-width: 15em;"
@@ -241,6 +272,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSCylinder:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="oscylinder" id="oscylinder" 
                    style="width: 15em; min-width: 15em;" 
@@ -250,6 +282,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODAxis:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odaxis" id="odaxis" 
                    style="width: 15em; min-width: 15em;"
@@ -258,6 +291,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSAxis:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="osaxis" id="osaxis" 
                    style="width: 15em; min-width: 15em;" 
@@ -267,6 +301,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
     <tr>
         <td vertical-align: top;>ODAdd:</td>
+        <td colspan="1"></td>
         <td colspan="3">
             <input type="text" name="odadd" id="odadd" 
                    style="width: 15em; min-width: 15em;" 
@@ -275,6 +310,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
         </td>
 
         <td vertical-align: top;>OSAdd:</td>
+        <td colspan="1"></td>
         <td colspan="4">
             <input type="text" name="osadd" id="osadd" 
                    style="width: 15em; min-width: 15em;"
@@ -284,7 +320,7 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     </tr>
   
     <tr>
-        <td colspan="9" style="text-align: center;">
+        <td colspan="10" style="text-align: center;">
             <% if (editingExistingData == true) { %>
                 <input type="submit" name="updateOphthalmologyDataButton" 
                        id="updateOphthalmologyDataButton"

@@ -733,6 +733,18 @@ CREATE TABLE IF NOT EXISTS designatedNutritionist(
 	PRIMARY KEY  (PatientID)
 ) ENGINE=MyISAM;
 
+CREATE TABLE IF NOT EXISTS surgeryTypes(
+	SurgeryID			BIGINT unsigned AUTO_INCREMENT primary key,
+	SurgeryName			VARCHAR(30)
+) ENGINE=MyISAM;
+
+CREATE TABLE IF NOT EXISTS ovSurgeryData(
+	id 				BIGINT unsigned AUTO_INCREMENT primary key,
+	VisitID 		BIGINT unsigned,
+	SurgeryID		BIGINT unsigned,
+	SurgeryNotes	VARCHAR(200)
+) ENGINE=MyISAM;
+
 CREATE TABLE IF NOT EXISTS ovOphthalmologyData(
 	id BIGINT unsigned AUTO_INCREMENT primary key,
     VisitID BIGINT unsigned,

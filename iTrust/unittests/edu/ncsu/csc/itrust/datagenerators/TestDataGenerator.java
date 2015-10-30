@@ -986,6 +986,8 @@ public class TestDataGenerator {
 		ovOphthalmology();
 		ovOphthalmologyData();
 		
+		surgeryTypes();
+		
 		
 		uc84();
 		
@@ -1197,6 +1199,12 @@ public class TestDataGenerator {
 		new DBBuilder(factory).executeSQLFile(DIR + "/brody_franco_ov.sql");
 		
 	}
+	
+	public void surgeryTypes() throws SQLException, FileNotFoundException, IOException{
+		new DBBuilder(factory).executeSQLFile(DIR + "/surgeryTypes.sql");
+		
+	}
+
 	/**
 	 * Do we have zipcodes?
 	 * 

@@ -164,6 +164,16 @@ CREATE TABLE flags(
 	PRIMARY KEY (FID)
 ) ENGINE=MyISAM;
 
+CREATE TABLE IF NOT EXISTS ophthalmologyflags(
+	FID BIGINT unsigned auto_increment,
+	MID BIGINT unsigned NOT NULL default '0',
+	flagType enum('Smoker', 'Diabetes', 'Race Caucasian',
+	'Family History of Age-related Macular Degeneration', 'Race African American and over age 40',
+	'Over age 60', 'Family History of Glaucoma'),
+	PRIMARY KEY (FID)
+) ENGINE=MyISAM;
+
+
 CREATE TABLE loginfailures(
 	ipaddress varchar(128) NOT NULL, 
 	failureCount int NOT NULL default 0, 

@@ -89,3 +89,4 @@ DROP TABLE IF EXISTS sleepEntry;
 DROP TABLE IF EXISTS labels;
 DROP TABLE IF EXISTS designatedNutritionist;
 DROP TABLE IF EXISTS ovOphthalmologyData;
+DROP TABLE IF EXISTS ophthalmologyflags;

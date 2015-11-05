@@ -68,8 +68,8 @@ VALUES ( 15,  717, 72,   180,   0, 9,      100,          100,           40,     
 on duplicate key update OfficeVisitID = OfficeVisitID;
 
 
-INSERT INTO officevisits(id,visitDate,HCPID,notes,HospitalID,PatientID)
-VALUES (717,'2015-10-12',9900000022,'Yet another ophthalmology office visit.','9',15)
+INSERT INTO officevisits(id,visitDate, appt_type, HCPID,notes,HospitalID,PatientID)
+VALUES (717,'2015-10-12', 'Ophthalmology', 9900000022,'Yet another ophthalmology office visit.','9',15)
  ON DUPLICATE KEY UPDATE id = id;
  
 

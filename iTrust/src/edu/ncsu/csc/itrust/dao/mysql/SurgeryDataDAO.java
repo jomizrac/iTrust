@@ -115,4 +115,23 @@ public class SurgeryDataDAO {
 			DBUtil.closeConnection(conn, ps); 
 		}
 	}
+	
+	public List<SurgeryDataBean> getSurgeryTypes() throws DBException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			SurgeryDataBeanLoader ovloader = new SurgeryDataBeanLoader();
+			conn = factory.getConnection();
+			ps = conn.prepareStatement(
+					"SELECT * FROM surgerytypes");
+			ResultSet rs = ps.executeQuery();
+			List<SurgeryDataBean> loadlist = ovloader.loadList(rs);
+			rs.close();
+			return loadlist;
+		} catch (SQLException e) { 
+			throw new DBException(e); 
+		} finally { 
+			DBUtil.closeConnection(conn, ps); 
+		}
+	}
 }

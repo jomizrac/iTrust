@@ -6,4 +6,5 @@ VALUES
 ('Colonoscopy', '90', '2500'),
 ('Ultrasound', '30', '500'),
 ('Consultation', '30', '1000'),
-('Ophthalmology', '60', '500');
+('Ophthalmology', '60', '500'),
+('Surgery', '60', '500');

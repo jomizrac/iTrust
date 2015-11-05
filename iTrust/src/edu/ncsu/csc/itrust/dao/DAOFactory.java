@@ -427,5 +427,9 @@ public class DAOFactory {
 	public MacronutrientsDAO getMacronutrientsDAO() {
 		return new MacronutrientsDAO(this);
 	}
+
+	public SurgeryDataDAO getSurgeryDataDAO() {
+		return new SurgeryDataDAO(this);
+	}
 	
 }

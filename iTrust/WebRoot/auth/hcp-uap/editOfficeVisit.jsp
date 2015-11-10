@@ -277,14 +277,14 @@ if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("O
 				
 				for(ApptTypeBean apptType : apptTypes) {
 				%>
-					<% if (!apptType.getName().equals("Ophthalmology")) { %>		
+					<% if (!apptType.getName().equals("Ophthalmology") && !apptType.getName().equals("Surgery")) { %>		
 								
 						<option value="<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>" 						
 						<%= StringEscapeUtils.escapeHtml("" + (apptType.getName().equals(ovbean.getAppointmentType()) ? "selected=selected" : "")) %> > 
 						<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>
 						</option>						
 					
-					<% } else if ((apptType.getName().equals("Ophthalmology")  && thisUser.getSpecialty().equals("Ophthalmologist")) ||
+					<% } else if ((apptType.getName().equals("Surgery")  && thisUser.getSpecialty().equals("Ophthalmologist")) ||
 								(apptType.getName().equals("Ophthalmology")  && 
 									(thisUser.getSpecialty().equals("Optometrist") || thisUser.getSpecialty().equals("Ophthalmologist")))) {%>							
 						<option value="<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>" 						
@@ -337,9 +337,11 @@ if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("O
 
 <br /><br />
 
-<% if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Surgery")) { %>
+<% if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Ophthalmology Surgery")) { %>
 	<a name="ophthalmology-surgery"></a>
 	<%@include file="editOVSurgeryData.jsp" %>
+	<br /><br />
+	<%@include file="editOVOphthalmologyData.jsp" %>
 <% } %>
 
 <br/><br/>

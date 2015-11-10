@@ -78,3 +78,4 @@ DELETE FROM exerciseEntry;
 DELETE FROM labels;
 DELETE FROM designatedNutritionist;
 DELETE FROM ovophthalmologydata;
+DELETE FROM surgeryTypes;

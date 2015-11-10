@@ -7,4 +7,4 @@ VALUES
 ('Ultrasound', '30', '500'),
 ('Consultation', '30', '1000'),
 ('Ophthalmology', '60', '500'),
-('Surgery', '60', '500');
+('Ophthalmology Surgery', '60', '500');

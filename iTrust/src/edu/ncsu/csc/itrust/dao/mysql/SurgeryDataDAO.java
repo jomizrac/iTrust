@@ -134,4 +134,22 @@ public class SurgeryDataDAO {
 			DBUtil.closeConnection(conn, ps); 
 		}
 	}
+
+	public void remove(long surgeryID) throws DBException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = factory.getConnection();
+			ps = conn.prepareStatement("DELETE FROM ovSurgeryData WHERE ID=? ");
+			ps.setLong(1, surgeryID);
+			ps.executeUpdate();
+			ps.close();
+		} catch (SQLException e) {
+			
+			throw new DBException(e);
+		} finally {
+			DBUtil.closeConnection(conn, ps);
+		}
+		
+	}
 }

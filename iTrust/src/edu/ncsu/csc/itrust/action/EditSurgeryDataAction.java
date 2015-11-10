@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ncsu.csc.itrust.action.base.EditOfficeVisitBaseAction;
-import edu.ncsu.csc.itrust.beans.DiagnosisBean;
 import edu.ncsu.csc.itrust.beans.SurgeryDataBean;
-import edu.ncsu.csc.itrust.beans.forms.EditSurgeryDataForm;
 import edu.ncsu.csc.itrust.dao.DAOFactory;
-import edu.ncsu.csc.itrust.dao.mysql.SurgeryDataDAO;
+import edu.ncsu.csc.itrust.dao.mysql.SurgeryDataDAO;	
 import edu.ncsu.csc.itrust.exception.DBException;
 import edu.ncsu.csc.itrust.exception.FormValidationException;
 import edu.ncsu.csc.itrust.exception.ITrustException;
@@ -18,6 +16,12 @@ import edu.ncsu.csc.itrust.validate.SurgeryDataFormValidator;
 public class EditSurgeryDataAction extends EditOfficeVisitBaseAction{
 
 	private SurgeryDataDAO surgeryData;
+	
+	public void deleteSurgeryData(SurgeryDataBean bean) throws ITrustException {
+		verifySaved();
+		surgeryData.remove(bean.getSurgeryID());
+		
+	}
 	
 	public EditSurgeryDataAction(DAOFactory factory, long hcpid,
 			String pidString) throws ITrustException {
@@ -63,7 +67,7 @@ public class EditSurgeryDataAction extends EditOfficeVisitBaseAction{
 	 * @return
 	 * @throws FormValidationException
 	 */
-	public SurgeryDataBean formToBean(EditSurgeryDataForm form)
+	public SurgeryDataBean formToBean(SurgeryDataBean form)
 			throws FormValidationException {
 		SurgeryDataFormValidator validator = new SurgeryDataFormValidator();
 		validator.validate(form);

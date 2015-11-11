@@ -19,7 +19,7 @@ public class SurgeryTypeBeanLoader implements BeanLoader<SurgeryTypeBean> {
 
 	public PreparedStatement loadParameters(PreparedStatement ps, SurgeryTypeBean surgeryType) throws SQLException {
 		ps.setString(1, surgeryType.getSurgeryName());
-		ps.setFloat(2, surgeryType.getSurgeryID());
+		ps.setLong(2, surgeryType.getSurgeryID());
 		return ps;
 	}
 

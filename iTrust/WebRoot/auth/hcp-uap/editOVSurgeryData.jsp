@@ -98,7 +98,7 @@ if ("surgeryDataForm".equals(submittedFormName)) {
         <td align="center">
         <%SurgeryTypeDAO stDAO = new SurgeryTypeDAO(prodDAO);
     	List<SurgeryTypeBean> surgeryTypes = stDAO.getSurgeryTypes(); %>
-           <select name="SurgeryID" style="font-size: 10px;" <%= disableSubformsString %> >
+           <select name="surgeryID" style="font-size: 10px;" <%= disableSubformsString %> >
                 <option value="">-- Please Select a Surgery --</option>
                 <% for (SurgeryTypeBean surgery : surgeryTypes) { %>
                 <option value=" <%=surgery.getSurgeryID() %>"><%= StringEscapeUtils.escapeHtml(StringEscapeUtils.escapeHtml("" + (surgery.getSurgeryName()))) %></option>

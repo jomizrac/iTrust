@@ -734,7 +734,7 @@ CREATE TABLE IF NOT EXISTS designatedNutritionist(
 ) ENGINE=MyISAM;
 
 CREATE TABLE IF NOT EXISTS surgeryTypes(
-	SurgeryID			BIGINT unsigned AUTO_INCREMENT primary key,
+	SurgeryID			BIGINT unsigned primary key,
 	SurgeryName			VARCHAR(30)
 ) ENGINE=MyISAM;
 

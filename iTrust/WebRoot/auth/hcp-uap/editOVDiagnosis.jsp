@@ -27,7 +27,7 @@ if ("diagnosisForm".equals(submittedFormName)) {
 	EditDiagnosesAction diagnoses = ovaction.diagnoses();
     
 	DiagnosisBean bean = new BeanBuilder<DiagnosisBean>().build(request.getParameterMap(), new DiagnosisBean());
-	//validator requires description but DiagnosesDAO does not. Set here to pass validation.
+	//validator requires description but Diagnoses DAO does not. Set here to pass validation.
 	bean.setDescription("no description");
     try {
     	DiagnosisBeanValidator validator = new DiagnosisBeanValidator();

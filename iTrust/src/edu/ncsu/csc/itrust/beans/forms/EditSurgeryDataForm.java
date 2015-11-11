@@ -9,7 +9,7 @@ package edu.ncsu.csc.itrust.beans.forms;
  */
 public class EditSurgeryDataForm {
 	
-	private long surgeryID;
+	private String surgeryID;
 	private String SurgeryNotes;
 	
 	public String getSurgeryNotes() {
@@ -18,10 +18,10 @@ public class EditSurgeryDataForm {
 	public void setSurgeryNotes(String surgeryNotes) {
 		SurgeryNotes = surgeryNotes;
 	}
-	public long getSurgeryID() {
+	public String getSurgeryID() {
 		return surgeryID;
 	}
-	public void setSurgeryID(long surgeryID) {
+	public void setSurgeryID(String surgeryID) {
 		this.surgeryID = surgeryID;
 	}
 

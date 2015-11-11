@@ -135,13 +135,13 @@ public class SurgeryDataDAO {
 		}
 	}
 
-	public void remove(long surgeryID) throws DBException {
+	public void remove(long id) throws DBException {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = factory.getConnection();
 			ps = conn.prepareStatement("DELETE FROM ovSurgeryData WHERE ID=? ");
-			ps.setLong(1, surgeryID);
+			ps.setLong(1, id);
 			ps.executeUpdate();
 			ps.close();
 		} catch (SQLException e) {

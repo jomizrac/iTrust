@@ -101,7 +101,7 @@ if ("surgeryDataForm".equals(submittedFormName)) {
            <select name="surgeryID" style="font-size: 10px;" <%= disableSubformsString %> >
                 <option value="">-- Please Select a Surgery --</option>
                 <% for (SurgeryTypeBean surgery : surgeryTypes) { %>
-                <option value=" <%=surgery.getSurgeryID() %>"><%= StringEscapeUtils.escapeHtml(StringEscapeUtils.escapeHtml("" + (surgery.getSurgeryName()))) %></option>
+                <option value="<%=surgery.getSurgeryID() %>"><%= StringEscapeUtils.escapeHtml(StringEscapeUtils.escapeHtml("" + (surgery.getSurgeryName()))) %></option>
                 <% }  %>
             </select>
         </td>

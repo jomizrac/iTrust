@@ -483,7 +483,9 @@ public enum TransactionType {
 	/**Viewed an Ophthalmology Office Visit**/
 	VIEW_OPHTHALMOLOGY_OFFICE_VISIT(8301, "View Ophthalmology Office Visit", "viewed an Ophthalmology office visit", true),
 	/**Edited an Ophthalmology Office Visit**/
-	EDIT_OPHTHALMOLOGY_OFFICE_VISIT(8302, "Edit Ophthalmology Office Visit", "edited an Ophthalmology office visit", true)
+	EDIT_OPHTHALMOLOGY_OFFICE_VISIT(8302, "Edit Ophthalmology Office Visit", "edited an Ophthalmology office visit", true),
+	/**Created an Ophthalmology Flag **/
+	CREATE_OPHTHALMOLOGY_FLAG(8700, "Create Ophthalmology Flag", "Created Ophthalology Flag", true)
 	;
 	
 	/**

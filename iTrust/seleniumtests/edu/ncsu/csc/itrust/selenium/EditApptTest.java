@@ -30,7 +30,7 @@ public class EditApptTest extends iTrustSeleniumTest{
 	  assertEquals("iTrust - HCP Home", driver.getTitle());
 	  driver.findElement(By.linkText("View My Appointments")).click();
 	  assertLogged(TransactionType.APPOINTMENT_ALL_VIEW, 9000000000L, 0L, "");
-	  driver.findElements(By.tagName("td")).get(35).findElement(By.tagName("a")).click();
+	  driver.findElements(By.tagName("td")).get(23).findElement(By.tagName("a")).click();
 	  assertTrue(driver.getPageSource().contains("Anakin Skywalker"));
 	  driver.findElement(By.name("schedDate")).clear();
 	  driver.findElement(By.name("schedDate")).sendKeys("10/10/2009");
@@ -48,7 +48,7 @@ public class EditApptTest extends iTrustSeleniumTest{
 	  assertEquals("iTrust - HCP Home", driver.getTitle());
 	  driver.findElement(By.linkText("View My Appointments")).click();
 	  assertLogged(TransactionType.APPOINTMENT_ALL_VIEW, 9000000000L, 0L, "");
-	  driver.findElements(By.tagName("td")).get(35).findElement(By.tagName("a")).click();
+	  driver.findElements(By.tagName("td")).get(23).findElement(By.tagName("a")).click();
 	  assertTrue(driver.getPageSource().contains("Anakin Skywalker"));
 	  driver.findElement(By.id("removeButton")).click();
 	  assertTrue(driver.getPageSource().contains("Success: Appointment removed"));

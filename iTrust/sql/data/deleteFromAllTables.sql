@@ -78,3 +78,6 @@ DELETE FROM exerciseEntry;
 DELETE FROM labels;
 DELETE FROM designatedNutritionist;
 DELETE FROM ovophthalmologydata;
+
+DELETE FROM ophthalmologyflags;
+ALTER TABLE ophthalmologyflags AUTO_INCREMENT = 0;

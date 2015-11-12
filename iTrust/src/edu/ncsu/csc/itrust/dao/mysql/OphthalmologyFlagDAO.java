@@ -117,12 +117,18 @@ public class OphthalmologyFlagDAO {
 		}
 	}
 	
-	public List<OphthalmologyFlagBean> getAllFlags() throws DBException {
+	/**
+	 * Returns an ArrayList of all flag objects for the given mid
+	 * @return
+	 * @throws DBException
+	 */
+	public List<OphthalmologyFlagBean> getFlagsByMid(long mid) throws DBException {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		try {
 			conn = factory.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM ophthalmologyflags");
+			ps = conn.prepareStatement("SELECT * FROM ophthalmologyflags WHERE MID = ?");
+			ps.setLong(1, mid);
 			ResultSet rs = ps.executeQuery();
 			// Make a list of results
 			List<OphthalmologyFlagBean>	results = flagLoader.loadList(rs);

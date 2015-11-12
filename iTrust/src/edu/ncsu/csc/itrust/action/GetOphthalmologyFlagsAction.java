@@ -4,10 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.ncsu.csc.itrust.beans.OphthalmologyFlagBean;
+import edu.ncsu.csc.itrust.beans.PatientBean;
 import edu.ncsu.csc.itrust.dao.DAOFactory;
 import edu.ncsu.csc.itrust.dao.mysql.OphthalmologyFlagDAO;
 import edu.ncsu.csc.itrust.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.enums.OphthalmologyFlag;
+import edu.ncsu.csc.itrust.exception.DBException;
+import edu.ncsu.csc.itrust.exception.ITrustException;
 
 /**
  * Determines warnings to display for an Ophthalmology Office Visit
@@ -20,6 +23,7 @@ public class GetOphthalmologyFlagsAction {
 	private long patientID;
 	private PatientDAO patientDAO;
 	private OphthalmologyFlagDAO flagDAO;
+	private PatientBean patientInformation;
 	
 	/**
 	 * Constructor for OphthalmologyFlagAction
@@ -27,13 +31,18 @@ public class GetOphthalmologyFlagsAction {
 	 * @param loggedInMID
 	 * @param pidString
 	 */
-	public GetOphthalmologyFlagsAction(DAOFactory factory, long loggedInMID, String pidString) {
+	public GetOphthalmologyFlagsAction(DAOFactory factory, long loggedInMID, String pidString) throws ITrustException {
 		this.factory = factory;
 		this.loggedInMID = loggedInMID;
 		this.patientID = Long.parseLong(pidString);
-		this.loggingAction = new EventLoggingAction(factory);
+		this.loggingAction = new EventLoggingAction(this.factory);
 		this.patientDAO = factory.getPatientDAO();
 		this.flagDAO = factory.getOphthalmologyFlagDAO();
+		try {
+			this.patientInformation = patientDAO.getPatient(patientID);
+		} catch (DBException e) {
+			throw new ITrustException("Paient information cannot be found");
+		}
 	}
 	
 	/**
@@ -76,7 +85,9 @@ public class GetOphthalmologyFlagsAction {
 		OphthalmologyFlagBean raceFlag = new OphthalmologyFlagBean();
 		raceFlag.setMid(pid);
 		raceFlag.setValue(OphthalmologyFlag.RaceCaucasian);
-		// set flagged based on patient records
+		if (patientInformation.getEthnicity().toString().equals("Caucasian")) {
+			raceFlag.setFlagged(true);
+		}
 		flags.add(raceFlag);
 		
 		OphthalmologyFlagBean historyFlag = new OphthalmologyFlagBean();
@@ -94,9 +105,12 @@ public class GetOphthalmologyFlagsAction {
 	private void createGlaucomaFlags(List<OphthalmologyFlagBean> flags, long pid) {
 		OphthalmologyFlagBean ageFlag = new OphthalmologyFlagBean();
 		ageFlag.setMid(pid);
-		//check if african american
-		//set flag value based on result
-		// set flagged based on patient records
+		if (patientInformation.getEthnicity().toString().equals("African American")) {
+			ageFlag.setValue(OphthalmologyFlag.AfricanAmerican40);
+			if (patientInformation.getAge() > OphthalmologyFlagBean.aaGlaucomaAge) {
+				ageFlag.setFlagged(true);
+			}
+		}
 		flags.add(ageFlag);
 		
 		OphthalmologyFlagBean historyFlag = new OphthalmologyFlagBean();
@@ -104,5 +118,21 @@ public class GetOphthalmologyFlagsAction {
 		historyFlag.setValue(OphthalmologyFlag.FamilyHistoryGlaucoma);
 		// set flagged based on patient records
 		flags.add(historyFlag);
+	}
+	
+	/**
+	 * Adds the given list of flags to the database
+	 * @param flags
+	 * @throws ITrustException
+	 */
+	public void addFlags(List<OphthalmologyFlagBean> flags) throws ITrustException {
+		try {
+			for (OphthalmologyFlagBean flag : flags) {
+				flagDAO.getFlag(flag);
+			}
+		}
+		catch (DBException e) {
+			throw new ITrustException("Error writing flags to database");
+		}
 	}
 }

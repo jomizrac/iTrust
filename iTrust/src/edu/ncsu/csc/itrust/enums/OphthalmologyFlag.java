@@ -18,15 +18,15 @@ public enum OphthalmologyFlag {
 		/** Caucasian */
 		RaceCaucasian("Race Caucasian","caucasian"),
 		/** Family history */
-		FamilyHistoryAMD("Family History of Age-related Macular Degeneration", "AMD"),
+		FamilyHistoryAMD("Family History of Age-related Macular Degeneration", "amd"),
 		
 	/** Glaucoma Risks */
 		/** African American and over age 40*/
-		AfricanAmerican40("Race African American and over age 40", "AA40"),
+		AfricanAmerican40("Race African American and over age 40", "aa40"),
 		/** Over age 60 */
 		Over60("Over age 60", "60"),
 		/** Family history */
-		FamilyHistoryGlaucoma("Family History of Glaucoma","Glaucoma");
+		FamilyHistoryGlaucoma("Family History of Glaucoma","glaucoma");
 
 	private String name; // represents a good output string
 	private String id; // represents a good id/name for an HTML form

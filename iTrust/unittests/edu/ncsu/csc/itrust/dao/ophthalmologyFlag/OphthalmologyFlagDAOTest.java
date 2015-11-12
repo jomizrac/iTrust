@@ -52,12 +52,12 @@ public class OphthalmologyFlagDAOTest extends TestCase {
 	 */
 	public void testOphthalmologyFlagDAO() throws Exception {
 		// No flags should be in the database at the beginning
-		List<OphthalmologyFlagBean> results = dao.getAllFlags();
+		List<OphthalmologyFlagBean> results = dao.getFlagsByMid(1L);
 		assertTrue(results.isEmpty());
 		
 		// Add the bean to the database
 		dao.setFlag(bean);
-		results = dao.getAllFlags();
+		results = dao.getFlagsByMid(1L);
 		assertFalse(results.isEmpty());
 		
 		// Get the flag and verify contents

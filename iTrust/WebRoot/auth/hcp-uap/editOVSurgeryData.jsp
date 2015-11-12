@@ -4,6 +4,7 @@
 <%@page import="edu.ncsu.csc.itrust.beans.SurgeryTypeBean"%>
 <%@page import="edu.ncsu.csc.itrust.dao.mysql.SurgeryTypeDAO"%>
 <%@page import="edu.ncsu.csc.itrust.validate.SurgeryDataFormValidator"%>
+<%@page import="edu.ncsu.csc.itrust.beans.forms.EditSurgeryDataForm"%>
 
 <% { %>
 
@@ -29,11 +30,11 @@ if("removeSurgeryDataForm".equals(submittedFormName)){
 //a new or a edited entry.  
 if ("surgeryDataForm".equals(submittedFormName)) {
 	EditSurgeryDataAction sDataAction = ovaction.surgeryData();
-	SurgeryDataBean bean = new BeanBuilder<SurgeryDataBean>().build(request.getParameterMap(), new SurgeryDataBean());
+	EditSurgeryDataForm bean = new BeanBuilder<EditSurgeryDataForm>().build(request.getParameterMap(), new EditSurgeryDataForm());
 	bean.setSurgeryNotes("no description");
 	try{
 		SurgeryDataFormValidator validator = new SurgeryDataFormValidator();
-		validator.validate(bean);
+		validator.validate(sDataAction.formToBean(bean));
 		bean.setVisitID(ovaction.getOvID());
 		sDataAction.addSurgeryData(bean);
 		ovaction.logOfficeVisitEvent(TransactionType.OFFICE_VISIT_EDIT);

@@ -51,9 +51,9 @@ public class GetOphthalmologyFlagsAction {
 	 */
 	public List<OphthalmologyFlagBean> createFlags() {
 		ArrayList<OphthalmologyFlagBean> flags = new ArrayList<OphthalmologyFlagBean>();
-		createCataractsFlags(flags, patientID);
-		createMacularDegenerationFlags(flags, patientID);
-		createGlaucomaFlags(flags, patientID);
+		createCataractsFlags(flags);
+		createMacularDegenerationFlags(flags);
+		createGlaucomaFlags(flags);
 		return flags;
 	}
 	
@@ -62,17 +62,17 @@ public class GetOphthalmologyFlagsAction {
 	 * @param flags
 	 * @param pid
 	 */
-	private void createCataractsFlags(List<OphthalmologyFlagBean> flags, long pid) {
+	private void createCataractsFlags(List<OphthalmologyFlagBean> flags) {
 		OphthalmologyFlagBean smokerFlag = new OphthalmologyFlagBean();
-		smokerFlag.setMid(pid);
+		smokerFlag.setMid(patientID);
 		smokerFlag.setValue(OphthalmologyFlag.Smoker);
-		// set flagged based on patient records
+		// set flagged based on user input?
 		flags.add(smokerFlag);
 		
 		OphthalmologyFlagBean diabetesFlag = new OphthalmologyFlagBean();
-		diabetesFlag.setMid(pid);
+		diabetesFlag.setMid(patientID);
 		diabetesFlag.setValue(OphthalmologyFlag.Diabetes);
-		// set flagged based on patient records
+		// set flagged based on user input?
 		flags.add(diabetesFlag);
 	}
 	
@@ -81,9 +81,9 @@ public class GetOphthalmologyFlagsAction {
 	 * @param flags
 	 * @param pid
 	 */
-	private void createMacularDegenerationFlags(List<OphthalmologyFlagBean> flags, long pid) {
+	private void createMacularDegenerationFlags(List<OphthalmologyFlagBean> flags) {
 		OphthalmologyFlagBean raceFlag = new OphthalmologyFlagBean();
-		raceFlag.setMid(pid);
+		raceFlag.setMid(patientID);
 		raceFlag.setValue(OphthalmologyFlag.RaceCaucasian);
 		if (patientInformation.getEthnicity().toString().equals("Caucasian")) {
 			raceFlag.setFlagged(true);
@@ -91,9 +91,9 @@ public class GetOphthalmologyFlagsAction {
 		flags.add(raceFlag);
 		
 		OphthalmologyFlagBean historyFlag = new OphthalmologyFlagBean();
-		historyFlag.setMid(pid);
+		historyFlag.setMid(patientID);
 		historyFlag.setValue(OphthalmologyFlag.FamilyHistoryAMD);
-		// set flagged based on patient records
+		// set flagged based on user input?
 		flags.add(historyFlag);
 	}
 	
@@ -102,21 +102,26 @@ public class GetOphthalmologyFlagsAction {
 	 * @param flags
 	 * @param pid
 	 */
-	private void createGlaucomaFlags(List<OphthalmologyFlagBean> flags, long pid) {
+	private void createGlaucomaFlags(List<OphthalmologyFlagBean> flags) {
 		OphthalmologyFlagBean ageFlag = new OphthalmologyFlagBean();
-		ageFlag.setMid(pid);
+		ageFlag.setMid(patientID);
 		if (patientInformation.getEthnicity().toString().equals("African American")) {
 			ageFlag.setValue(OphthalmologyFlag.AfricanAmerican40);
 			if (patientInformation.getAge() > OphthalmologyFlagBean.aaGlaucomaAge) {
+				ageFlag.setFlagged(true);
+			}
+		} else {
+			ageFlag.setValue(OphthalmologyFlag.Over60);
+			if (patientInformation.getAge() > OphthalmologyFlagBean.glaucomaAge) {
 				ageFlag.setFlagged(true);
 			}
 		}
 		flags.add(ageFlag);
 		
 		OphthalmologyFlagBean historyFlag = new OphthalmologyFlagBean();
-		historyFlag.setMid(pid);
+		historyFlag.setMid(patientID);
 		historyFlag.setValue(OphthalmologyFlag.FamilyHistoryGlaucoma);
-		// set flagged based on patient records
+		// set flagged based on user input?
 		flags.add(historyFlag);
 	}
 	
@@ -128,7 +133,7 @@ public class GetOphthalmologyFlagsAction {
 	public void addFlags(List<OphthalmologyFlagBean> flags) throws ITrustException {
 		try {
 			for (OphthalmologyFlagBean flag : flags) {
-				flagDAO.getFlag(flag);
+				flagDAO.setFlag(flag);
 			}
 		}
 		catch (DBException e) {

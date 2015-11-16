@@ -199,7 +199,7 @@ if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("O
 		    " | <a href=\"#immunizations\">Immunizations</a>" +
 		    " | <a href=\"#referrals\">Referrals</a>" +
 		"</div>";
-}else if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Surgery")) {
+}else if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Ophthalmology Surgery")) {
 	localHtmlMenu = "<div align=center style=\"margin-bottom: 0.5em\">" +
 			  " <a href=\"#general\">General</a>" +
 			" | <a href=\"#ophthalmology-surgery\">Surgery</a>" +
@@ -277,14 +277,14 @@ if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("O
 				
 				for(ApptTypeBean apptType : apptTypes) {
 				%>
-					<% if (!apptType.getName().equals("Ophthalmology") && !apptType.getName().equals("Surgery")) { %>		
+					<% if (!apptType.getName().equals("Ophthalmology") && !apptType.getName().equals("Ophthalmology Surgery")) { %>		
 								
 						<option value="<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>" 						
 						<%= StringEscapeUtils.escapeHtml("" + (apptType.getName().equals(ovbean.getAppointmentType()) ? "selected=selected" : "")) %> > 
 						<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>
 						</option>						
 					
-					<% } else if ((apptType.getName().equals("Surgery")  && thisUser.getSpecialty().equals("Ophthalmologist")) ||
+					<% } else if ((apptType.getName().equals("Ophthalmology Surgery")  && thisUser.getSpecialty().equals("Ophthalmologist")) ||
 								(apptType.getName().equals("Ophthalmology")  && 
 									(thisUser.getSpecialty().equals("Optometrist") || thisUser.getSpecialty().equals("Ophthalmologist")))) {%>							
 						<option value="<%= StringEscapeUtils.escapeHtml("" + (apptType.getName())) %>" 						

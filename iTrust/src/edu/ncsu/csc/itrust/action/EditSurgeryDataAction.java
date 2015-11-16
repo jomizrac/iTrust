@@ -5,6 +5,7 @@ import java.util.List;
 
 import edu.ncsu.csc.itrust.action.base.EditOfficeVisitBaseAction;
 import edu.ncsu.csc.itrust.beans.SurgeryDataBean;
+import edu.ncsu.csc.itrust.beans.forms.EditSurgeryDataForm;
 import edu.ncsu.csc.itrust.dao.DAOFactory;
 import edu.ncsu.csc.itrust.dao.mysql.SurgeryDataDAO;	
 import edu.ncsu.csc.itrust.exception.DBException;
@@ -67,7 +68,7 @@ public class EditSurgeryDataAction extends EditOfficeVisitBaseAction{
 	 * @return
 	 * @throws FormValidationException
 	 */
-	public SurgeryDataBean formToBean(SurgeryDataBean form)
+	public SurgeryDataBean formToBean(EditSurgeryDataForm form)
 			throws FormValidationException {
 		SurgeryDataFormValidator validator = new SurgeryDataFormValidator();
 		validator.validate(form);

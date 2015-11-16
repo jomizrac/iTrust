@@ -17,6 +17,7 @@ public class SurgeryTypeBean implements Serializable {
 	
 	private long surgeryID;
 	private String surgeryName;
+	
 	public long getSurgeryID() {
 		return surgeryID;
 	}
@@ -28,5 +29,5 @@ public class SurgeryTypeBean implements Serializable {
 	}
 	public void setSurgeryName(String surgeryName) {
 		this.surgeryName = surgeryName;
-	}	
+	}
 }

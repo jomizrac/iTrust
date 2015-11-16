@@ -30,11 +30,14 @@ if("removeSurgeryDataForm".equals(submittedFormName)){
 //a new or a edited entry.  
 if ("surgeryDataForm".equals(submittedFormName)) {
 	EditSurgeryDataAction sDataAction = ovaction.surgeryData();
-	EditSurgeryDataForm bean = new BeanBuilder<EditSurgeryDataForm>().build(request.getParameterMap(), new EditSurgeryDataForm());
-	bean.setSurgeryNotes("no description");
+	EditSurgeryDataForm form = new BeanBuilder<EditSurgeryDataForm>().build(request.getParameterMap(), new EditSurgeryDataForm());
+	if(form.getSurgeryNotes().equals("")){
+		form.setSurgeryNotes("no description");
+	}
 	try{
 		SurgeryDataFormValidator validator = new SurgeryDataFormValidator();
-		validator.validate(sDataAction.formToBean(bean));
+		validator.validate(form);
+		SurgeryDataBean	bean = sDataAction.formToBean(form);
 		bean.setVisitID(ovaction.getOvID());
 		sDataAction.addSurgeryData(bean);
 		ovaction.logOfficeVisitEvent(TransactionType.OFFICE_VISIT_EDIT);
@@ -81,9 +84,12 @@ if ("surgeryDataForm".equals(submittedFormName)) {
 	        <td  colspan="3" style="text-align: center;">No Surgeries on record</td>
 	    </tr>
 	    <%}else { 
+	    	SurgeryTypeDAO stDAO = new SurgeryTypeDAO(prodDAO);
+	    	List<SurgeryTypeBean> surgeryTypes = stDAO.getSurgeryTypes();
             for(SurgeryDataBean s : ovaction.surgeryData().getSurgeryData()) { %>
     <tr>
-        <td><%= StringEscapeUtils.escapeHtml("" + s.getSurgeryID()) %></td>
+        <td><% %>
+        <%= StringEscapeUtils.escapeHtml("" + stDAO.getSurgeryTypes().get((int)(s.getSurgeryID()-1)).getSurgeryName()) %></td>
         <td ><%= StringEscapeUtils.escapeHtml("" + (s.getSurgeryNotes())) %></td>
         <td ><a
             href="javascript:removeSurgeryDataID('<%= StringEscapeUtils.escapeHtml("" + (s.getId())) %>');">Remove</a></td>
@@ -106,15 +112,17 @@ if ("surgeryDataForm".equals(submittedFormName)) {
                 <% }  %>
             </select>
         </td>
+        <td></td>
       </tr>
      <tr colspan = 3>
      	<td>Notes:</td>
      	<td>
-     	 <textarea name="notes" id="notes" style=" height: 5em; min-width: 30em; font-family: sans-serif;"
+     	 <textarea name="surgeryNotes" id="surgeryNotes" style=" height: 5em; min-width: 30em; font-family: sans-serif;"
                       <%= disableSubformsString %> 
                       ></textarea>
             <input type="submit" id="add_surgery_data" name="addP" value="Add Surgery Data" <%= disableSubformsString %> >
         </td>
+        <td></td>
     </tr>
 	</table>
 

@@ -1,4 +1,7 @@
-
+<%@page import="edu.ncsu.csc.itrust.enums.OphthalmologyFlag"%>
+<%@page import="java.util.LinkedList"%>
+<%@page import="edu.ncsu.csc.itrust.beans.OphthalmologyFlagBean"%>
+<%@page import="edu.ncsu.csc.itrust.dao.mysql.OphthalmologyFlagDAO"%>
 <%@page import="edu.ncsu.csc.itrust.action.EditOphthalmologyDataAction"%>
 <%@page import="edu.ncsu.csc.itrust.beans.OphthalmologyDataBean"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -203,6 +206,36 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     	       
     </tr>
     <% } // end of if..else statements %>
+    <%OphthalmologyFlagDAO flagsDAO = new OphthalmologyFlagDAO(prodDAO);%>
+		<tr>
+		<td>
+			<table class="fTable" colspan="10" align="center">
+				<tr>
+					<th colspan="10" style="text-align: center;">Ophthalmology Warning Flags for Patient</th>
+				</tr>
+				<%
+					boolean hadFlags = false;
+					for (OphthalmologyFlag f: OphthalmologyFlag.values()) {
+							OphthalmologyFlagBean flag = new OphthalmologyFlagBean();
+							flag.setMid(Long.parseLong(pidString));
+							flag.setValue(f);
+							flag = flagsDAO.getFlag(flag);
+							if (flag != null && flag.isFlagged()) {
+								hadFlags = true;
+				%>
+				<tr>
+					<td><%=flag.getValue().toString()%></td>
+				</tr>
+				<%
+							}
+						}
+						//if there were NO flagged values in the DB, output None
+						if (!hadFlags) {
+							out.write("<tr><td>None</td></tr>");
+						}%>
+			</table>
+		</td>
+		</tr>
     <tr>
         <th colspan="10" style="text-align: center;">New</th>
     </tr>

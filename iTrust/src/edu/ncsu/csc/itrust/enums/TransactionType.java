@@ -129,6 +129,10 @@ public enum TransactionType {
 	DIAGNOSIS_REMOVE(1132, "Remove Diagnosis", "Removed a diagnosis from your office visit", true),
 	/**DIAGNOSIS_URL_EDIT*/
 	DIAGNOSIS_URL_EDIT(1133, "Edit Diagnosis URL", "Diagnosis URL was edited", true),
+	/**DIAGNOSIS_ADD*/
+	SURGERY_ADD(1134, "Add Surgery Data", "Added a surgery to your office visit", true),
+	/**DIAGNOSIS_REMOVE*/
+	SURGERY_REMOVE(1135, "Remove Surgery Data", "Removed a surgery from your office visit", true),
 	/**PROCEDURE_ADD*/
 	PROCEDURE_ADD(1140, "Add Procedure", "Added a procedure to your office visit", true),
 	/**PROCEDURE_EDIT*/

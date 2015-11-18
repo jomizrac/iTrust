@@ -45,6 +45,7 @@ public class EditOfficeVisitAction extends EditOfficeVisitBaseAction {
 	private EditPatientInstructionsAction patientInstructionsAction;
 	private EditReferralsAction referralsAction;
 	private EditOphthalmologyDataAction ophthalmologyDataAction;
+	private EditSurgeryDataAction surgeryDataAction;
 	
 	private EventLoggingAction loggingAction;
 	
@@ -78,6 +79,7 @@ public class EditOfficeVisitAction extends EditOfficeVisitBaseAction {
 		this.patientInstructionsAction = new EditPatientInstructionsAction(factory, loggedInMID, pidString, ovIDString);
 		this.referralsAction = new EditReferralsAction(factory, loggedInMID, pidString, ovIDString);
 		this.ophthalmologyDataAction = new EditOphthalmologyDataAction(factory, loggedInMID, pidString, ovIDString);
+		this.surgeryDataAction = new EditSurgeryDataAction(factory, loggedInMID, pidString, ovIDString);
 		this.loggingAction = new EventLoggingAction(factory);
 		
 		this.loggedInMID = loggedInMID;
@@ -111,6 +113,7 @@ public class EditOfficeVisitAction extends EditOfficeVisitBaseAction {
 		this.patientInstructionsAction = new EditPatientInstructionsAction(factory, loggedInMID, pidString);
 		this.referralsAction = new EditReferralsAction(factory, loggedInMID, pidString);
 		this.ophthalmologyDataAction = new EditOphthalmologyDataAction(factory, loggedInMID, pidString);
+		this.surgeryDataAction = new EditSurgeryDataAction(factory, loggedInMID, pidString);
 		this.loggingAction = new EventLoggingAction(factory);
 		
 		this.loggedInMID = loggedInMID;
@@ -138,6 +141,8 @@ public class EditOfficeVisitAction extends EditOfficeVisitBaseAction {
 		patientInstructionsAction = new EditPatientInstructionsAction(factory, loggedInMID, pidString, ovIDString);
 		referralsAction = new EditReferralsAction(factory, loggedInMID, pidString, ovIDString);
 		ophthalmologyDataAction = new EditOphthalmologyDataAction(factory, loggedInMID, pidString, ovIDString);
+		surgeryDataAction = new EditSurgeryDataAction(factory, loggedInMID, pidString, ovIDString);
+
 	}
 
 	/**
@@ -185,6 +190,13 @@ public class EditOfficeVisitAction extends EditOfficeVisitBaseAction {
 	 */
 	public EditDiagnosesAction diagnoses() throws ITrustException {
 		return diagnosesAction;
+	}
+	/**
+	 * @return The EditSurgeryDataAction sub action associated with this office visit.
+	 * @throws ITrustException
+	 */
+	public EditSurgeryDataAction surgeryData() throws ITrustException {
+		return surgeryDataAction;
 	}
 	/**
 	 * @return The EditLabProceduresAction sub action associated with this office visit.

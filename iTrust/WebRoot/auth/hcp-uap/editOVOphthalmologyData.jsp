@@ -234,6 +234,10 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
 							out.write("<tr><td>None</td></tr>");
 						}%>
 			</table>
+			<table class="fTable" colspan="10" align="center">
+				<input type="checkbox" name="id" value="Java"> Java<BR>
+				<input type="checkbox" name="id" value=".NET">
+			</table>
 		</td>
 		</tr>
     <tr>

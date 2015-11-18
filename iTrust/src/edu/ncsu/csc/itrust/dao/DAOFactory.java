@@ -383,6 +383,14 @@ public class DAOFactory {
 	public FlagsDAO getFlagsDAO() {
 		return new FlagsDAO(this);
 	}
+	
+	/**
+	 * Gets the DAO for setting ophthalmology flags.
+	 * @return this DAO factory's OphthalmologyFlagDAO
+	 */
+	public OphthalmologyFlagDAO getOphthalmologyFlagDAO() {
+		return new OphthalmologyFlagDAO(this);
+	}
 
 	public PreExistingConditionsDAO getPreExistingConditionsDAO() {
 		return new PreExistingConditionsDAO(this);

@@ -79,3 +79,6 @@ DELETE FROM labels;
 DELETE FROM designatedNutritionist;
 DELETE FROM ovophthalmologydata;
 DELETE FROM surgeryTypes;
+
+DELETE FROM ophthalmologyflags;
+ALTER TABLE ophthalmologyflags AUTO_INCREMENT = 0;

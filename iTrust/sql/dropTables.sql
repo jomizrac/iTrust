@@ -90,3 +90,4 @@ DROP TABLE IF EXISTS labels;
 DROP TABLE IF EXISTS designatedNutritionist;
 DROP TABLE IF EXISTS ovOphthalmologyData;
 DROP TABLE IF EXISTS surgeryTypes;
+DROP TABLE IF EXISTS ophthalmologyflags;

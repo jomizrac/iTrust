@@ -80,11 +80,11 @@ public class AppointmentTest extends iTrustSeleniumTest{
 		select = new Select (driver.findElement(By.name("apptType")));
 		select.selectByIndex(0);
 		select = new Select (driver.findElement(By.name("time1")));
-		select.selectByIndex(0);
+		select.selectByValue("09");
 		select = new Select (driver.findElement(By.name("time2")));
-		select.selectByIndex(9);
+		select.selectByValue("45");
 		select = new Select (driver.findElement(By.name("time3")));
-		select.selectByIndex(1);
+		select.selectByValue("AM");
 		element = driver.findElement(By.name("schedDate"));
 		element.clear();
 		element.sendKeys(format2.format(c.getTime()));

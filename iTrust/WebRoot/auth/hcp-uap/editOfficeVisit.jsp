@@ -332,6 +332,7 @@ if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("O
 
 <% if (ovbean.getAppointmentType() != null && ovbean.getAppointmentType().equals("Ophthalmology")) { %>
 	<a name="ophthalmology-data"></a>
+	<%@include file="ophthalmologyFlag.jsp" %>
 	<%@include file="editOVOphthalmologyData.jsp" %>
 <% } %>
 

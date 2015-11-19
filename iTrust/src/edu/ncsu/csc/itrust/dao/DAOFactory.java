@@ -436,8 +436,19 @@ public class DAOFactory {
 		return new MacronutrientsDAO(this);
 	}
 
+	/**
+	 * Creates a new DAO for inputting Surgery data
+	 * @return this DAO factory's SurgeryDataDAO
+	 */
 	public SurgeryDataDAO getSurgeryDataDAO() {
 		return new SurgeryDataDAO(this);
 	}
-	
+
+	/**
+	 * Creates a new DAO for creating new Surgery types
+	 * @return this DAO factory's SurgeryTypeDAO
+	 */
+	public SurgeryTypeDAO getSurgeryTypeDAO() {
+		return new SurgeryTypeDAO(this);
+	}
 }

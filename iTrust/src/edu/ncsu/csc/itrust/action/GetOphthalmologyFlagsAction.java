@@ -6,6 +6,8 @@ import java.util.List;
 import edu.ncsu.csc.itrust.beans.OphthalmologyFlagBean;
 import edu.ncsu.csc.itrust.beans.PatientBean;
 import edu.ncsu.csc.itrust.dao.DAOFactory;
+import edu.ncsu.csc.itrust.dao.mysql.DiagnosesDAO;
+import edu.ncsu.csc.itrust.dao.mysql.HealthRecordsDAO;
 import edu.ncsu.csc.itrust.dao.mysql.OphthalmologyFlagDAO;
 import edu.ncsu.csc.itrust.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.enums.OphthalmologyFlag;
@@ -25,6 +27,8 @@ public class GetOphthalmologyFlagsAction {
 	private PatientDAO patientDAO;
 	private OphthalmologyFlagDAO flagDAO;
 	private PatientBean patientInformation;
+	private DiagnosesDAO diagnosesDAO;
+	private HealthRecordsDAO recordsDAO;
 
 	/**
 	 * Constructor for OphthalmologyFlagAction
@@ -46,6 +50,8 @@ public class GetOphthalmologyFlagsAction {
 		} catch (DBException e) {
 			throw new ITrustException("Paient information cannot be found");
 		}
+		this.diagnosesDAO = factory.getDiagnosesDAO();
+		this.recordsDAO = factory.getHealthRecordsDAO();
 	}
 
 	/**
@@ -69,18 +75,27 @@ public class GetOphthalmologyFlagsAction {
 	 * 
 	 * @param flags
 	 */
-	private void createCataractsFlags(List<OphthalmologyFlagBean> flags) {
-		OphthalmologyFlagBean smokerFlag = new OphthalmologyFlagBean();
+	private void createCataractsFlags(List<OphthalmologyFlagBean> flags) throws ITrustException {
+		/*OphthalmologyFlagBean smokerFlag = new OphthalmologyFlagBean();
 		smokerFlag.setMid(patientID);
 		smokerFlag.setValue(OphthalmologyFlag.Smoker);
-		// set flagged based on user input?
+		try {
+			smokerFlag.setFlagged(recordsDAO.checkSmoking(patientID));
+		} catch (DBException e) {
+			throw new ITrustException("Error checking for smoking");
+		}
 		flags.add(smokerFlag);
-
+*/ /*
 		OphthalmologyFlagBean diabetesFlag = new OphthalmologyFlagBean();
 		diabetesFlag.setMid(patientID);
 		diabetesFlag.setValue(OphthalmologyFlag.Diabetes);
-		// set flagged based on user input?
+		try {
+			diabetesFlag.setFlagged(diagnosesDAO.checkDiabetes(patientID));
+		} catch (DBException e) {
+			throw new ITrustException("Error checking for diabetes");
+		}
 		flags.add(diabetesFlag);
+		*/
 	}
 
 	/**

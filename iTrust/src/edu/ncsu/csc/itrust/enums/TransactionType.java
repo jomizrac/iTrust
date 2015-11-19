@@ -129,6 +129,10 @@ public enum TransactionType {
 	DIAGNOSIS_REMOVE(1132, "Remove Diagnosis", "Removed a diagnosis from your office visit", true),
 	/**DIAGNOSIS_URL_EDIT*/
 	DIAGNOSIS_URL_EDIT(1133, "Edit Diagnosis URL", "Diagnosis URL was edited", true),
+	/**DIAGNOSIS_ADD*/
+	SURGERY_ADD(1134, "Add Surgery Data", "Added a surgery to your office visit", true),
+	/**DIAGNOSIS_REMOVE*/
+	SURGERY_REMOVE(1135, "Remove Surgery Data", "Removed a surgery from your office visit", true),
 	/**PROCEDURE_ADD*/
 	PROCEDURE_ADD(1140, "Add Procedure", "Added a procedure to your office visit", true),
 	/**PROCEDURE_EDIT*/
@@ -483,7 +487,9 @@ public enum TransactionType {
 	/**Viewed an Ophthalmology Office Visit**/
 	VIEW_OPHTHALMOLOGY_OFFICE_VISIT(8301, "View Ophthalmology Office Visit", "viewed an Ophthalmology office visit", true),
 	/**Edited an Ophthalmology Office Visit**/
-	EDIT_OPHTHALMOLOGY_OFFICE_VISIT(8302, "Edit Ophthalmology Office Visit", "edited an Ophthalmology office visit", true)
+	EDIT_OPHTHALMOLOGY_OFFICE_VISIT(8302, "Edit Ophthalmology Office Visit", "edited an Ophthalmology office visit", true),
+	/**Created an Ophthalmology Flag **/
+	CREATE_OPHTHALMOLOGY_FLAG(8700, "Create Ophthalmology Flag", "Created Ophthalology Flag", true)
 	;
 	
 	/**

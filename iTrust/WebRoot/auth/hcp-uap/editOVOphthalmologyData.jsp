@@ -1,4 +1,8 @@
-
+<%@page import="edu.ncsu.csc.itrust.enums.OphthalmologyFlag"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="edu.ncsu.csc.itrust.action.GetOphthalmologyFlagsAction"%>
+<%@page import="edu.ncsu.csc.itrust.beans.OphthalmologyFlagBean"%>
+<%@page import="edu.ncsu.csc.itrust.dao.mysql.OphthalmologyFlagDAO"%>
 <%@page import="edu.ncsu.csc.itrust.action.EditOphthalmologyDataAction"%>
 <%@page import="edu.ncsu.csc.itrust.beans.OphthalmologyDataBean"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -203,6 +207,62 @@ if (!cancelledEditingData && "OphthalmologyDataForm".equals(submittedFormName)) 
     	       
     </tr>
     <% } // end of if..else statements %>
+    <%GetOphthalmologyFlagsAction flagAction = new GetOphthalmologyFlagsAction(prodDAO, loggedInMID, pidString);%>
+	<tr>
+		<th colspan="10" style="text-align: center;">Ophthalmology Warning Flags</th>
+	</tr>
+	<%
+		boolean hadFlags = false;
+		boolean smoker = false;
+		boolean diabetes = false;
+		boolean caucasian = false;
+		boolean amd = false;
+		boolean aa40 = false;
+		boolean sixty = false;
+		boolean glaucoma = false;
+		List<OphthalmologyFlagBean> flags = flagAction.createFlags();
+		for (OphthalmologyFlagBean flag: flags) {
+			if (flag != null && flag.isFlagged()) {
+				hadFlags = true;
+				if (flag.getValue().toString().equals("Smoker")) {
+					smoker = true;
+				} else if (flag.getValue().toString().equals("Diabetes")) {
+					diabetes = true;
+				} else if (flag.getValue().toString().equals("Race Caucasian")) {
+					caucasian = true;
+				} else if (flag.getValue().toString().equals("Family History of Age-related Macular Degeneration")) {
+					amd = true;
+				} else if (flag.getValue().toString().equals("Race African American and over age 40")) {
+					aa40 = true;
+				} else if (flag.getValue().toString().equals("Over age 60")) {
+					sixty = true;
+				} else if (flag.getValue().toString().equals("Family History of Glaucoma")) {
+					glaucoma = true;
+				}
+			}
+		}
+		if (smoker || diabetes) {
+		%>
+			<tr><td colspan="10" style="text-align: center;">High risk cataracts! </td></tr>
+		<%
+		}
+		if (caucasian || amd) {
+		%>	
+			<tr><td colspan="10" style="text-align: center;">High risk macular degeneration! </td></tr>
+		<%
+		}
+		if (aa40 || sixty || glaucoma) {
+		%>
+			<tr><td colspan="10" style="text-align: center;">High risk glaucoma! </td></tr>
+		<%
+		}
+		//if there were NO flagged values in the DB, output None
+		if (!hadFlags) {
+		%>
+			<tr><td>No Warnings</td></tr>
+		<%
+		}
+		%>
     <tr>
         <th colspan="10" style="text-align: center;">New</th>
     </tr>

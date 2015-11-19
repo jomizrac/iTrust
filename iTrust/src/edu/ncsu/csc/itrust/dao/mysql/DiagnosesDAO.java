@@ -276,5 +276,29 @@ public class DiagnosesDAO {
 			DBUtil.closeConnection(conn, ps);
 		}
 	}
-
+	
+	/**
+	 * Checks for Diabetes for the given mid
+	 * @param mid 
+	 * @return 
+	 * @throws DBException
+	 */
+	public boolean checkDiabetes(long mid) throws DBException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = factory.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM ovdiagnosis WHERE ID=? AND ICDCode=250.10 ");
+			ps.setLong(1, mid);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			throw new DBException(e);
+		} finally {
+			DBUtil.closeConnection(conn, ps);
+		}
+		return false;
+	}
 }

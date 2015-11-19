@@ -59,7 +59,7 @@ public class OphthalmologyFlagDAO {
 					ps.close();
 					ps = conn.prepareStatement("DELETE FROM ophthalmologyflags WHERE MID = ? AND flagType = ?");
 					ps.setLong(1, p.getMid());
-					ps.setString(3, p.getValue().toString());
+					ps.setString(2, p.getValue().toString());
 					ps.execute();
 				}
 				// else, it's true and it exists so nothing needs to change

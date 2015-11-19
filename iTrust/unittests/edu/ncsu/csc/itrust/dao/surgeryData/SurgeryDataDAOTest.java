@@ -64,16 +64,16 @@ public class SurgeryDataDAOTest extends TestCase {
 	 * Tests the add() method
 	 * @throws Exception
 	 */
-	//public void testAdd() throws Exception {	
+	public void testAdd() throws Exception {	
 		//add valid bean
-	//	dao.add(sdbean);
-	//	SurgeryDataBean curr = dao.getList(66).get(0);
-	//	assertEquals(1, dao.getList(66).size());
-	//	assertEquals(1L, curr.getSurgeryID()); getting increasing numbers
-	//	assertEquals(1L, curr.getId());
-	//	assertEquals(String.valueOf("Kinda nothing"), curr.getSurgeryNotes());
+		dao.add(sdbean);
+		SurgeryDataBean curr = dao.getList(66).get(0);
+		assertEquals(1, dao.getList(66).size());
+		assertEquals(1L, curr.getSurgeryID()); //getting increasing numbers
+		assertEquals(1L, curr.getId());
+		assertEquals(String.valueOf("Kinda nothing"), curr.getSurgeryNotes());
 		
-	//}
+	}
 	
 	/**
 	 * Tests the edit() method

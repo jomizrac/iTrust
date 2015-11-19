@@ -288,7 +288,7 @@ public class DiagnosesDAO {
 		PreparedStatement ps = null;
 		try {
 			conn = factory.getConnection();
-			ps = conn.prepareStatement("SELECT FROM ovdiagnosis WHERE ID=? AND ICDCode=250.10 ");
+			ps = conn.prepareStatement("SELECT * FROM ovdiagnosis WHERE ID=? AND ICDCode=250.10 ");
 			ps.setLong(1, mid);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {

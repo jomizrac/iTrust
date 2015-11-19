@@ -76,7 +76,7 @@ public class GetOphthalmologyFlagsAction {
 	 * @param flags
 	 */
 	private void createCataractsFlags(List<OphthalmologyFlagBean> flags) throws ITrustException {
-		/*OphthalmologyFlagBean smokerFlag = new OphthalmologyFlagBean();
+		OphthalmologyFlagBean smokerFlag = new OphthalmologyFlagBean();
 		smokerFlag.setMid(patientID);
 		smokerFlag.setValue(OphthalmologyFlag.Smoker);
 		try {
@@ -85,7 +85,7 @@ public class GetOphthalmologyFlagsAction {
 			throw new ITrustException("Error checking for smoking");
 		}
 		flags.add(smokerFlag);
-*/ /*
+
 		OphthalmologyFlagBean diabetesFlag = new OphthalmologyFlagBean();
 		diabetesFlag.setMid(patientID);
 		diabetesFlag.setValue(OphthalmologyFlag.Diabetes);
@@ -95,7 +95,6 @@ public class GetOphthalmologyFlagsAction {
 			throw new ITrustException("Error checking for diabetes");
 		}
 		flags.add(diabetesFlag);
-		*/
 	}
 
 	/**

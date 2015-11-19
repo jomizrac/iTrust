@@ -279,7 +279,7 @@ public class HealthRecordsDAO {
 		PreparedStatement ps = null;
 		try {
 			conn = factory.getConnection();
-			ps = conn.prepareStatement("SELECT * FROM personalhealthinformation WHERE PatientID=? AND WHERE Smoker=1");
+			ps = conn.prepareStatement("SELECT * FROM personalhealthinformation WHERE PatientID=? AND Smoker=1");
 			ps.setLong(1, mid);
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {

@@ -271,4 +271,25 @@ public class HealthRecordsDAO {
 		return records;
 	}
 	
+	/**
+	 * 
+	 */
+	public boolean checkSmoking(long mid) throws DBException {
+		Connection conn = null;
+		PreparedStatement ps = null;
+		try {
+			conn = factory.getConnection();
+			ps = conn.prepareStatement("SELECT * FROM personalhealthinformation WHERE PatientID=? AND WHERE Smoker=1");
+			ps.setLong(1, mid);
+			ResultSet rs = ps.executeQuery();
+			if (rs.next()) {
+				return true;
+			}
+		} catch (SQLException e) {
+			throw new DBException(e);
+		} finally {
+			DBUtil.closeConnection(conn, ps);
+		}
+		return false;
+	}
 }

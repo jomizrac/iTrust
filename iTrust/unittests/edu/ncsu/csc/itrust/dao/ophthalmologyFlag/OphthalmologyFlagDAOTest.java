@@ -66,5 +66,11 @@ public class OphthalmologyFlagDAOTest extends TestCase {
 		assertEquals(testResult.getMid(), 1L);
 		assertEquals(testResult.getValue(), OphthalmologyFlag.parseEnum("Smoker"));
 		assertTrue(testResult.isFlagged());
+		
+		// Delete the flag from the database
+		bean.setFlagged(false);
+		dao.setFlag(bean);
+		results = dao.getFlagsByMid(1L);
+		assertTrue(results.isEmpty());
 	}
 }

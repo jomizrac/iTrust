@@ -1,8 +1,11 @@
 <%@page import="edu.ncsu.csc.itrust.dao.mysql.OphthalmologyDataDAO"%>
+<%@page import="edu.ncsu.csc.itrust.dao.mysql.SurgeryDataDAO"%>
 <%@page import="edu.ncsu.csc.itrust.beans.OfficeVisitBean"%>
 <%@page import="edu.ncsu.csc.itrust.action.ViewOfficeVisitAction"%>
 <%@page import="edu.ncsu.csc.itrust.dao.DAOFactory"%>
 <%@page import="edu.ncsu.csc.itrust.beans.OphthalmologyDataBean"%>
+<%@page import="edu.ncsu.csc.itrust.beans.SurgeryTypeBean"%>
+<%@page import="edu.ncsu.csc.itrust.beans.SurgeryDataBean"%>
 <%@page import="edu.ncsu.csc.itrust.beans.HealthRecord"%>
 <%@page import="edu.ncsu.csc.itrust.beans.DiagnosisBean"%>
 <%@page import="edu.ncsu.csc.itrust.beans.ProcedureBean"%>
@@ -13,6 +16,7 @@
 <%@page import="edu.ncsu.csc.itrust.dao.mysql.PatientDAO"%>
 <%@page import="edu.ncsu.csc.itrust.dao.mysql.PersonnelDAO"%>
 <%@page import="edu.ncsu.csc.itrust.dao.mysql.ICDCodesDAO"%>
+<%@page import="edu.ncsu.csc.itrust.dao.mysql.SurgeryTypeDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="java.text.DateFormat"%>
@@ -128,6 +132,36 @@ session.removeAttribute("personnelList");
 	</tr>
 </table>
 <br /><br />
+<table class="fTable" align="center">
+<%
+if(type.equals("Ophthalmology Surgery")){
+%>
+	<tr>
+		<th colspan = "3"> Surgery Data <th>
+	<tr>
+	<tr class = "subHeader">
+		<td>Surgery Type</td>
+		<td>Surgery Notes</td>
+	</tr>
+	<%SurgeryDataDAO surgery = prodDAO.getSurgeryDataDAO();
+	SurgeryTypeDAO stDAO = new SurgeryTypeDAO(prodDAO);
+	List<SurgeryTypeBean> surgeryTypes = stDAO.getSurgeryTypes();
+	for(SurgeryDataBean odbean : ovaction.getSurgeryDAO()){		
+		
+		%>
+		<tr>
+    	<td align=center><%= StringEscapeUtils.escapeHtml("" + (stDAO.getSurgeryTypes().get((int)odbean.getSurgeryID()-1).getSurgeryName())) %></td>
+    	<td align=center><%= StringEscapeUtils.escapeHtml("" + (odbean.getSurgeryNotes())) %></td>
+		</tr>
+		<%
+	
+	}
+	
+	
+} %>
+</table>
+<br /><br />
+
 <table class="fTable" align="center">
 <%
 if(type.equals("Ophthalmology")){

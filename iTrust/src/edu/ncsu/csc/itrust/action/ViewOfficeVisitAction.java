@@ -12,6 +12,7 @@ import edu.ncsu.csc.itrust.beans.OphthalmologyDataBean;
 import edu.ncsu.csc.itrust.beans.PatientBean;
 import edu.ncsu.csc.itrust.beans.PrescriptionBean;
 import edu.ncsu.csc.itrust.beans.ProcedureBean;
+import edu.ncsu.csc.itrust.beans.SurgeryDataBean;
 import edu.ncsu.csc.itrust.dao.DAOFactory;
 import edu.ncsu.csc.itrust.dao.mysql.DiagnosesDAO;
 import edu.ncsu.csc.itrust.dao.mysql.HealthRecordsDAO;
@@ -22,6 +23,7 @@ import edu.ncsu.csc.itrust.dao.mysql.PatientDAO;
 import edu.ncsu.csc.itrust.dao.mysql.PersonnelDAO;
 import edu.ncsu.csc.itrust.dao.mysql.PrescriptionsDAO;
 import edu.ncsu.csc.itrust.dao.mysql.ProceduresDAO;
+import edu.ncsu.csc.itrust.dao.mysql.SurgeryDataDAO;
 import edu.ncsu.csc.itrust.exception.DBException;
 import edu.ncsu.csc.itrust.exception.ITrustException;
 import edu.ncsu.csc.itrust.Messages;
@@ -44,6 +46,7 @@ public class ViewOfficeVisitAction extends OfficeVisitBaseAction {
 	private ProceduresDAO proceduresDAO;
 	private LabProcedureDAO labProceduresDAO;
 	private DiagnosesDAO diagnosesDAO;
+	private SurgeryDataDAO surgeryDAO;
 	
 	private PersonnelDAO personnelDAO;
 	private PatientDAO patientDAO;
@@ -71,6 +74,7 @@ public class ViewOfficeVisitAction extends OfficeVisitBaseAction {
 		proceduresDAO = factory.getProceduresDAO();
 		labProceduresDAO = factory.getLabProcedureDAO();
 		diagnosesDAO = factory.getDiagnosesDAO();
+		surgeryDAO = factory.getSurgeryDataDAO();
 	}
 
 	/**
@@ -236,5 +240,9 @@ public class ViewOfficeVisitAction extends OfficeVisitBaseAction {
 		
 		//Return the age in months
 		return ageInMonths;
+	}
+
+	public List<SurgeryDataBean> getSurgeryDAO() throws DBException {
+		return surgeryDAO.getList(ovID);
 	}
 }

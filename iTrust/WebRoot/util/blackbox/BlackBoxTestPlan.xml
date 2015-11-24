@@ -19270,10 +19270,10 @@ Protein: 1.5
 		<step>Login as Freya Chandler (15, pw)</step>
 		<step>Click View My Records</step>
 		<step>Select October 15, 2015</step>
-		<step>The page should show a flag for High Risk Glaucoma</step>
+		<step>The page should not show a flag for High Risk Glaucoma</step>
 	</description>
 	<expectedResults>
-		<eResult>Brooke Tran sees "High Risk Glaucoma" under flags</eResult>
+		<eResult>Brooke Tran does not see "High Risk Glaucoma" under flags</eResult>
 	</expectedResults>
 </test>
 </BlackBoxTestPlan>

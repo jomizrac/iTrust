@@ -55,7 +55,14 @@ if ("surgeryDataForm".equals(submittedFormName)) {
 		updateErrorMessage = e.printHTMLasString();
 	}
 }
-%>
+
+ if (!"".equals(updateErrorMessage)) { %>
+<div style="background-color:yellow;color:black" align="center">
+    <%= updateErrorMessage %>
+</div>
+<% } %>
+ 
+ 
 <script type="text/javascript">
     function removeSurgeryDataID(value) {
         document.getElementById("removeSurgeryDataID").value = value;

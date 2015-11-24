@@ -104,7 +104,8 @@ public enum ValidationFormat {
 	OPHTHALMOLOGY_DATA_NULLAXISOS("", "OSAxis only required if OSCylinder is provided"),
 	OPHTHALMOLOGY_DATA_NULLAXISOD("", "ODAxis only required if ODCylinder is provided"),
 	OPHTHALMOLOGY_DATA_AXIS("[1-9]|[0-9][0-9]|1[0-7][0-9]|180", "Must be positive integer between 1 and 180"), 
-	OPHTHALMOLOGY_DATA_ADD("^\\+?(?:3(?:\\.0*)?|[1-2](?:\\.[0-9]*)?|0?\\.[7][5-9][0-9]*|0?\\.[8-9][0-9]*)$" , "Must be between .75 and 3.00")
+	OPHTHALMOLOGY_DATA_ADD("^\\+?(?:3(?:\\.0*)?|[1-2](?:\\.[0-9]*)?|0?\\.[7][5-9][0-9]*|0?\\.[8-9][0-9]*)$" , "Must be between .75 and 3.00"),
+	SURGERY_DATA("^[1-9]\\d*$", "Must select a Surgery Type")
 	;
 
 	private Pattern regex;

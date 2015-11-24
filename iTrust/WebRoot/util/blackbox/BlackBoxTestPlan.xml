@@ -19139,4 +19139,141 @@ Protein: 1.5
 		<eResult>Logan Chandler sees the following information: </eResult>
 	</expectedResults>
 </test>
+<test id = "CheckOphthalmologyDiagnosesList">
+	<role>Patient</role>
+	<usecase>85</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Freya Chandler is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Tran (9900000022, pw)</step>
+		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
+		<step>Brooke Tran searchs for patient 15, Select Freya Chandler</step>
+		<step>Brooke Tran chooses the visit from 10/12/2015</step>
+		<step>Brooke Tran clicks on the drop-down list of diagnoses</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees a list of length 5</eResult>
+	</expectedResults>
+</test>
+<test id = "CheckAllDiagnosesList">
+	<role>Patient</role>
+	<usecase>85</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Dare Devil is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Tran (9900000022, pw)</step>
+		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
+		<step>Brooke Tran searchs for patient 23, Select Freya Chandler</step>
+		<step>Brooke Tran chooses the visit from 3/31/2011</step>
+		<step>Brooke Tran clicks on the drop-down list of diagnoses</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees a list of length 18</eResult>
+	</expectedResults>
+</test>
+<test id = "TestCreateOphthalmologySurgery">
+	<role>Patient</role>
+	<usecase>86</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Freya Chandler is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Laser (9900000023, pw)</step>
+		<step>Dr. Laser selects "Document Office Visit" under Office Visits</step>
+		<step>Dr. Laser searchs for patient 15, Select Freya Chandler</step>
+		<step>Dr. Laser chooses Yes, Document Office Visit"</step>
+		<step>Dr. Laser creates an office visit with type Ophthalmology Surgery</step>
+		<step>Dr. Laser scrolls down to the Surgery Section</step>
+		<step>Dr. Laser selects Cataracts Surgery</step>
+		<step>Dr. Laser enters the notes "This is a hold up"</step>
+		<step>Dr. Laser selects Add Surgery Data</step>
+	</description>
+	<expectedResults>
+		<eResult>Dr. Laser sees "Cataracts Surgery" in the surgery menu</eResult>
+	</expectedResults>
+</test>
+<test id = "TestCreateOphthalmologySurgeryNoTypeError">
+	<role>Patient</role>
+	<usecase>86</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Freya Chandler is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Laser (9900000023, pw)</step>
+		<step>Dr. Laser selects "Document Office Visit" under Office Visits</step>
+		<step>Dr. Laser searchs for patient 15, Select Freya Chandler</step>
+		<step>Dr. Laser chooses Yes, Document Office Visit"</step>
+		<step>Dr. Laser creates an office visit with type Ophthalmology Surgery</step>
+		<step>Dr. Laser scrolls down to the Surgery Section</step>
+		<step>Dr. Laser enters the notes "This is a hold up"</step>
+		<step>Dr. Laser selects Add Surgery Data</step>
+	</description>
+	<expectedResults>
+		<eResult>Dr. Laser sees "Must Select a Surgery Type" above the surgery menu</eResult>
+	</expectedResults>
+</test>
+<test id = "GlaucomaOphthalmologyFlag">
+	<role>Patient</role>
+	<usecase>87</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Freya Chandler is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Tran (9900000022, pw)</step>
+		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
+		<step>Brooke Tran searchs for patient 15, Select Freya Chandler</step>
+		<step>Brooke Tran chooses Yes, Document Office Visit"</step>
+		<step>Brooke Tran creates an office visit with type Ophthalmology Visit</step>
+		<step>Brooke Tran scrolls down to the Ophthalmology Section</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees "High Risk Glaucoma" under flags</eResult>
+	</expectedResults>
+</test>
+<test id = "HRMDFlag">
+	<role>Patient</role>
+	<usecase>87</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Andy Programmer is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Tran (9900000022, pw)</step>
+		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
+		<step>Brooke Tran searchs for patient 2, Select Andy Programmer</step>
+		<step>Brooke Tran chooses Yes, Document Office Visit"</step>
+		<step>Brooke Tran creates an office visit with type Ophthalmology Visit</step>
+		<step>Brooke Tran scrolls down to the Ophthalmology Section</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees "High risk macular degeneration!" under flags</eResult>
+	</expectedResults>
+</test>
+<test id = "NoOphthalmologyFlags">
+	<role>Patient</role>
+	<usecase>87</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Baby Programmer is a Registered user of iTrust</precondition>
+		<step>Login as Dr. Tran (9900000022, pw)</step>
+		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
+		<step>Brooke Tran searchs for patient 2, Select Baby Programmer</step>
+		<step>Brooke Tran chooses Yes, Document Office Visit"</step>
+		<step>Brooke Tran creates an office visit with type Ophthalmology Visit</step>
+		<step>Brooke Tran scrolls down to the Ophthalmology Section</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees "No Warnings"" under flags</eResult>
+	</expectedResults>
+</test>
+<test id = "PatientViewFlags">
+	<role>Patient</role>
+	<usecase>87</usecase>
+	<dateadded>10/11/2014</dateadded>
+	<description>
+		<precondition>Freya Chandler is a Registered user of iTrust</precondition>
+		<step>Login as Freya Chandler (15, pw)</step>
+		<step>Click View My Records</step>
+		<step>Select October 15, 2015</step>
+		<step>The page should show a flag for High Risk Glaucoma</step>
+	</description>
+	<expectedResults>
+		<eResult>Brooke Tran sees "High Risk Glaucoma" under flags</eResult>
+	</expectedResults>
+</test>
 </BlackBoxTestPlan>

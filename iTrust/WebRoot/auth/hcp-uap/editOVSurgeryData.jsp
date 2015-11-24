@@ -13,6 +13,14 @@
 String updateMessage = "";
 String updateErrorMessage = "";
 
+//only allows Ophthalmologists edit Surgery Visits
+//Any HCP can view existing Ophthalmology Office Visits however
+PersonnelBean loggedInUser = pDAO.getPersonnel(loggedInMID);
+if (!loggedInUser.getSpecialty().equals("Ophthalmologist")) {
+	disableSubformsString = "disabled=\"true\"";
+}
+
+
 if("removeSurgeryDataForm".equals(submittedFormName)){
 	EditSurgeryDataAction sDataAction = ovaction.surgeryData();
 	
@@ -47,7 +55,14 @@ if ("surgeryDataForm".equals(submittedFormName)) {
 		updateErrorMessage = e.printHTMLasString();
 	}
 }
-%>
+
+ if (!"".equals(updateErrorMessage)) { %>
+<div style="background-color:yellow;color:black" align="center">
+    <%= updateErrorMessage %>
+</div>
+<% } %>
+ 
+ 
 <script type="text/javascript">
     function removeSurgeryDataID(value) {
         document.getElementById("removeSurgeryDataID").value = value;
@@ -91,8 +106,14 @@ if ("surgeryDataForm".equals(submittedFormName)) {
         <td><% %>
         <%= StringEscapeUtils.escapeHtml("" + stDAO.getSurgeryTypes().get((int)(s.getSurgeryID()-1)).getSurgeryName()) %></td>
         <td ><%= StringEscapeUtils.escapeHtml("" + (s.getSurgeryNotes())) %></td>
-        <td ><a
-            href="javascript:removeSurgeryDataID('<%= StringEscapeUtils.escapeHtml("" + (s.getId())) %>');">Remove</a></td>
+        <td >
+        <% 	//only allow Optometrists and Ophthalmologists edit Ophthalmology Office Visits
+			//Any HCP can view existing Ophthalmology Office Visits however
+			if (loggedInUser.getSpecialty().equals("Ophthalmologist")) {
+				%> <a
+		            href="javascript:removeSurgeryDataID('<%= StringEscapeUtils.escapeHtml("" + (s.getId())) %>');">Remove</a></td> <%
+			} %>
+       
     </tr>
     <%      }
         }%>

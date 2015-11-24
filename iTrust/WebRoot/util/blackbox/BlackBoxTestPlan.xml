@@ -18826,7 +18826,7 @@ Protein: 1.5
 			<step>Brooke Tran goes to "Document Office Visit" under the "Office Visits" category on the left sidebar.</step>
 			<step>Brooke Tran clicks "Yes, Document Office Visit"</step>
 			<step>Brooke Tran changes "Date of Visit to be "10/14/2015" and "Appointment Type" to be "Ophthalmology", then clicks create</step>
-			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
+			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: OD Visual Acuity: 20/40, OS Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
 			<step>Brooke Tran clicks "Add Ophthalmology Data"</step>
 		</description>
 		<expectedResults>
@@ -18847,7 +18847,7 @@ Protein: 1.5
 			<step>Brooke Tran goes to "Document Office Visit" under the "Office Visits" category on the left sidebar.</step>
 			<step>Brooke Tran clicks "Yes, Document Office Visit"</step>
 			<step>Brooke Tran changes "Date of Visit to be "10/15/2015" and "Appointment Type" to be "Ophthalmology", then clicks create</step>
-			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: Visual Acuity: 20/10, Sphere OD: +1.75, Sphere OS: +17.50, Add OD: +1.25, Add OS: +1.25</step>
+			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: OD Visual Acuity: 20/10, OS Visual Acuity: 20/10, Sphere OD: +1.75, Sphere OS: +17.50, Add OD: +1.25, Add OS: +1.25</step>
 			<step>Brooke Tran clicks "Add Ophthalmology Data"</step>
 			<step>Brooke Tran updates "Sphere OS" to be "+1.75" and clicks "Add Ophthalmology Data"</step>
 		</description>
@@ -18875,7 +18875,7 @@ Protein: 1.5
 		</description>
 		<expectedResults>
 			<eResult>Under "Appointment Type", "Ophthalmology" is not listed. </eResult>
-			<eResult>Kelly Doctor is able to view the Office Visit, but not edit. The information listed is: Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</eResult>
+			<eResult>Kelly Doctor is able to view the Office Visit, but not edit. The information listed is: OD Visual Acuity: 20/40, OS Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</eResult>
 		</expectedResults>
 		<actualResults></actualResults>
 </test>
@@ -18891,7 +18891,7 @@ Protein: 1.5
 			<step>Brooke Tran searches for patient "Freya Chandler" and selects this patient</step>
 			<step>Brooke Tran goes to "Document Office Visit" under the "Office Visits" category on the left sidebar.</step>
 			<step>Brooke Tran selects Office Visit "10/15/2015"</step>
-			<step>In the new section called "Ophthalmology Data", Brooke Tran updates Visual Acuity to be: "20/15"</step>
+			<step>In the new section called "Ophthalmology Data", Brooke Tran updates OD and OS Visual Acuity to be: "20/15"</step>
 			<step>Brooke Tran clicks "Update Ophthalmology Data"</step>
 		</description>
 		<expectedResults>
@@ -18912,7 +18912,7 @@ Protein: 1.5
 			<step>Brooke Tran goes to "Document Office Visit" under the "Office Visits" category on the left sidebar.</step>
 			<step>Brooke Tran clicks "Yes, Document Office Visit"</step>
 			<step>Brooke Tran changes "Date of Visit to be "10/14/2015" and "Appointment Type" to be "Ophthalmology", then clicks create</step>
-			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
+			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: OD Visual Acuity: 20/40, OS Visual Acuity: 20/40, Sphere OD: -3.25, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
 			<step>Brooke Tran clicks "Add Ophthalmology Data"</step>
 		</description>
 		<expectedResults>
@@ -18993,7 +18993,7 @@ Protein: 1.5
 			<step>Brooke Tran goes to "Document Office Visit" under the "Office Visits" category on the left sidebar.</step>
 			<step>Brooke Tran clicks "Yes, Document Office Visit"</step>
 			<step>Brooke Tran changes "Date of Visit to be "10/14/2015" and "Appointment Type" to be "Ophthalmology", then clicks create</step>
-			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: Visual Acuity: 20/40, Sphere OD: blue, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
+			<step>In the new section called "Ophthalmology Data", Brooke Tran enters the blanks to be: OD Visual Acuity: 20/40, OS Visual Acuity: 20/40, Sphere OD: blue, Sphere OS: -3.00, Cylinder OD: -1.25, Axis OD: 50, Add OD: +1.00, Add OS: +1.00</step>
 			<step>Brooke Tran clicks "Add Ophthalmology Data"</step>
 		</description>
 		<expectedResults>
@@ -19015,7 +19015,8 @@ Protein: 1.5
 	<expectedRedults>
 		<eResult>See the following information:
 				Optometrist: Brooke Tran
-				Visual Acuity: 20/40
+				OD Visual Acuity: 20/40
+				OS Visual Acuity: 20/40
 				Sphere OD: -3.25
 				Sphere OS: -3.00
 				Cylinder OD: -1.25
@@ -19041,7 +19042,7 @@ Protein: 1.5
 		<step>Brooke Tran selects "Document Office Visit" under Office Visits</step>
 		<step>Brooke Tran searchs for patient 15, Select Freya Chandler</step>
 		<step>Brooke Tran chooses Office Visit "10/14/2015"</step>
-		<step>Brooke Tran updates visual acuity to 20/15</step>
+		<step>Brooke Tran updates OD and OS visual acuity to 20/15</step>
 		<step>Brooke Tran clicks "Update Ophthaolmology Data"</step>
 		<step>Brooke Tran logs out</step>
 		<step>Freya Chandler authenticates into iTrust (Username: 15, Password: "pw")</step>
@@ -19052,7 +19053,8 @@ Protein: 1.5
 		<eResult>Freya Chandler sees the following information:
 		Date: 10/15/2015
 		Optometrist: Brooke Tran
-		Visual Acuity: 20/10
+		OD Visual Acuity: 20/10
+		OS Visual Acuity: 20/10
 		Sphere OD: +1.75
 		Sphere OS: +1.75
 		Add OD: +1.25
@@ -19061,7 +19063,8 @@ Protein: 1.5
 		<eResult>Freya Chandler sees the following information:
 		Date: 10/15/2015
 		Optometrist: Brooke Tran
-		Visual Acuity: 20/15
+		OD Visual Acuity: 20/15
+		OS Visual Acuity: 20/15
 		Sphere OD: +1.75
 		Sphere OS: +1.75
 		Add OD: +1.25	
@@ -19089,7 +19092,8 @@ Protein: 1.5
 		See the following information:
 		Date: 10/30/2015
 		Optometrist: Brooke Tran
-		Visual Acuity: 20/18
+		OD Visual Acuity: 20/18
+		OS Visual Acuity: 20/18
 		Sphere OD: +0.75
 		Sphere OS: +0.5
 		Cylinder OS: -0.25
